@@ -249,7 +249,8 @@
             <li><a href="#kepakaran">Kepakaran</a></li>
             <li><a href="#promosi">Sistem KETICK</a></li>
             <li><a href="#ideanest">IdeaNest</a></li>
-            <li><a href="#entertainment">K-Play</a></li> </ul>
+            <li><a href="#entertainment">K-Play</a></li> 
+        </ul>
     </nav>
 
     <section id="home" class="hero">
@@ -371,12 +372,12 @@
 
             <div class="player-controls">
                 <div class="now-playing">
-                    <h4 id="song-title">Lofi Hip Hop Radio - Beats to Relax/Study</h4>
+                    <h4 id="song-title">Memuatkan K-Play...</h4>
                     <p style="font-size: 0.8rem; color: var(--accent-gold);">K-Play Station</p>
                 </div>
 
                 <div class="custom-song-input">
-                    <input type="text" id="yt-url" placeholder="Tampal Link YouTube (Contoh: https://youtu.be/jfKfPfyJRdk)">
+                    <input type="text" id="yt-url" placeholder="Tampal Link YouTube atau Playlist">
                     <button onclick="loadCustomVideo()" class="btn-load"><i class="fas fa-search"></i> Mainkan</button>
                 </div>
 
@@ -457,13 +458,15 @@
             player = new YT.Player('youtube-player', {
                 height: '200',
                 width: '200',
-                videoId: 'jfKfPfyJRdk', // ID Video Default (Lofi Hip Hop)
                 playerVars: {
                     'playsinline': 1,
                     'controls': 0, // Sorok kawalan youtube asal
                     'disablekb': 1,
                     'fs': 0,
-                    'rel': 0
+                    'rel': 0,
+                    'listType': 'playlist',
+                    // ID Playlist Rasmi KETICK
+                    'list': 'PLGWbba0pzgZwoaCJp_zTl_4VyjVeuwgYc'
                 },
                 events: {
                     'onReady': onPlayerReady,
@@ -474,6 +477,8 @@
 
         function onPlayerReady(event) {
             player.setVolume(50);
+            // Kemas kini tajuk apabila player sedia
+            document.getElementById('song-title').innerText = "KETICK Official Station 🎧";
         }
 
         function onPlayerStateChange(event) {
@@ -491,16 +496,23 @@
         function pauseVideo() { player.pauseVideo(); }
         function changeVolume(val) { player.setVolume(val); }
 
-        // Fungsi pengguna letak link sendiri
+        // Fungsi pengguna letak link sendiri (Video/Playlist)
         function loadCustomVideo() {
             var url = document.getElementById('yt-url').value;
+            var playlistId = extractPlaylistID(url);
             var videoId = extractVideoID(url);
             
-            if(videoId) {
+            if (playlistId) {
+                player.loadPlaylist({
+                    list: playlistId,
+                    listType: 'playlist'
+                });
+                document.getElementById('song-title').innerText = "Playlist Pilihan Pengguna 🎧";
+            } else if(videoId) {
                 player.loadVideoById(videoId);
                 document.getElementById('song-title').innerText = "Lagu Pilihan Pengguna 🎧";
             } else {
-                alert("Sila masukkan link YouTube yang sah!");
+                alert("Sila masukkan link YouTube atau Playlist yang sah!");
             }
         }
 
@@ -509,6 +521,16 @@
             var match = url.match(regExp);
             if (match && match[2].length == 11) {
                 return match[2];
+            } else {
+                return null;
+            }
+        }
+
+        function extractPlaylistID(url) {
+            var regExp = /[?&]list=([^#\&\?]+)/;
+            var match = url.match(regExp);
+            if (match && match[1]) {
+                return match[1];
             } else {
                 return null;
             }
