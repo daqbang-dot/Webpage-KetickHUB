@@ -4,431 +4,299 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>KETICK | Sistem Digital & Realisasi Idea Bisnes Malaysia</title>
-    <meta name="description" content="KETICK pakar dalam pembangunan sistem jualan, website korporat, dan merealisasikan idea perisian anda. Solusi website murah, sistem stok, dan automasi bisnes custom made untuk peniaga mikro Malaysia.">
-    <meta name="keywords" content="KETICK, bina website rm99, buat website murah, sistem jualan malaysia, program bisnes, usahawan mikro malaysia, IdeaNest, sistem ERP custom, sistem stokis ejen">
+    <title>KETICK | Solusi Sistem Digital & Automasi Pintar</title>
+    <meta name="description" content="KETICK pakar dalam pembangunan sistem jualan, website korporat, dan merealisasikan idea perisian anda. Solusi premium untuk usahawan mikro.">
+    <meta name="keywords" content="KETICK, bina website rm99, sistem jualan malaysia, program bisnes, IdeaNest, sistem ERP custom, sistem stokis ejen">
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            /* DEEP NEBULA COLOR PALETTE */
-            --bg-base: #0a0c18; /* Deep space black */
-            --text-light: #fdfbf7;
-            --text-muted: #8c8f9f;
-            --accent-gold: #c5a059;
-            --accent-cyan: #2980b9; /* Corporate cyan */
-            --glass-bg: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            /* DEEP SAAS THEME COLORS (Berdasarkan Rujukan) */
+            --bg-dark: #03040b; /* Very deep dark blue/black */
+            --bg-card: #0c0f1d;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-muted: #8b92a5;
+            --neon-cyan: #00e5ff;
+            --neon-blue: #2970ff;
+            --neon-purple: #b14bf4;
+            --glow-cyan: rgba(0, 229, 255, 0.4);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-base);
-            color: var(--text-light);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* --- ADVANCED NEBULA BACKGROUND EFFECT --- */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.05) 0%, transparent 40%),
-                        radial-gradient(circle at 90% 80%, rgba(41, 128, 185, 0.1) 0%, transparent 40%),
-                        radial-gradient(circle at 50% 50%, rgba(15, 17, 35, 1) 0%, transparent 60%);
-            z-index: -2;
+        /* Ambient Glow Backgrounds */
+        .ambient-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.5;
+            pointer-events: none;
         }
+        .glow-top { top: -10%; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: rgba(0, 229, 255, 0.15); }
+        .glow-mid { top: 40%; left: -10%; width: 500px; height: 500px; background: rgba(177, 75, 244, 0.1); }
+        .glow-bottom { bottom: 10%; right: -10%; width: 700px; height: 700px; background: rgba(41, 112, 255, 0.1); }
 
         /* --- NAVIGATION --- */
         nav {
-            position: fixed;
-            width: 100%;
-            padding: 15px 8%;
-            background: rgba(10, 12, 24, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
+            position: fixed; width: 100%; padding: 20px 8%;
+            background: rgba(3, 4, 11, 0.8); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex; justify-content: space-between; align-items: center; z-index: 1000;
         }
-
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: var(--text-light);
-        }
-
-        .logo span { color: var(--accent-gold); }
-
-        nav ul { display: flex; list-style: none; gap: 30px; }
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-light);
-            font-weight: 500;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-        nav ul li a:hover { color: var(--accent-gold); }
+        .logo { font-size: 22px; font-weight: 800; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;}
+        .logo i { color: var(--neon-cyan); }
+        nav ul { display: flex; list-style: none; gap: 35px; }
+        nav ul li a { text-decoration: none; color: var(--text-muted); font-weight: 500; font-size: 14px; transition: 0.3s; }
+        nav ul li a:hover { color: var(--text-main); }
+        .nav-btn { background: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 8px; color: #fff; font-size: 13px; font-weight: 600; text-decoration: none; border: 1px solid var(--border-color); transition: 0.3s;}
+        .nav-btn:hover { background: var(--text-main); color: var(--bg-dark); }
 
         /* --- HERO SECTION --- */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: left;
-            padding: 120px 10% 60px;
+        .hero { padding: 160px 10% 80px; text-align: center; position: relative; }
+        .eyebrow { 
+            display: inline-block; padding: 6px 16px; background: rgba(0, 229, 255, 0.1); 
+            border: 1px solid rgba(0, 229, 255, 0.2); border-radius: 20px; color: var(--neon-cyan);
+            font-size: 12px; font-weight: 600; letter-spacing: 1px; margin-bottom: 25px; text-transform: uppercase;
         }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            width: 100%;
-            align-items: center;
+        .hero h1 { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 25px; letter-spacing: -1px; }
+        .hero h1 span {
+            background: linear-gradient(to right, var(--neon-cyan), var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-
-        .hero-text-area {
-            animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1);
+        .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 40px; }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-cyan));
+            color: #fff; padding: 15px 35px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px;
+            display: inline-block; transition: 0.3s; border: none; box-shadow: 0 10px 25px rgba(0, 229, 255, 0.3);
         }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0, 229, 255, 0.5); }
 
-        .hero-text-area h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.2rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            font-weight: 800;
+        /* --- ANIMATED DASHBOARD MOCKUP --- */
+        .dashboard-showcase { margin-top: 80px; position: relative; perspective: 1000px; }
+        .dashboard-glow {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 80%; height: 80%; background: var(--neon-cyan); filter: blur(150px); opacity: 0.25; z-index: -1;
         }
-
-        .hero-text-area h1 span {
-            background: -webkit-linear-gradient(45deg, var(--accent-cyan), var(--accent-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .mockup-window {
+            width: 100%; max-width: 1000px; margin: 0 auto; background: var(--bg-card);
+            border: 1px solid rgba(0, 229, 255, 0.3); border-radius: 16px; overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), 0 0 0 1px var(--border-color);
+            display: flex; flex-direction: column;
+            animation: floatUI 6s ease-in-out infinite;
         }
+        .mockup-header { height: 40px; background: #070913; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; padding: 0 15px; gap: 8px; }
+        .mac-dot { width: 10px; height: 10px; border-radius: 50%; background: #444; }
+        .mac-dot.red { background: #ff5f56; } .mac-dot.yellow { background: #ffbd2e; } .mac-dot.green { background: #27c93f; }
+        
+        /* CSS Dashboard UI */
+        .mockup-body { display: flex; height: 500px; }
+        .mockup-sidebar { width: 220px; border-right: 1px solid var(--border-color); padding: 20px; display: flex; flex-direction: column; gap: 15px; }
+        .side-item { height: 30px; border-radius: 6px; background: rgba(255,255,255,0.03); width: 100%; }
+        .side-item.active { background: rgba(0, 229, 255, 0.1); border-left: 3px solid var(--neon-cyan); }
+        .mockup-content { flex: 1; padding: 30px; display: flex; flex-direction: column; gap: 20px; background: radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 100%);}
+        
+        /* Dashboard Widgets */
+        .dash-header { display: flex; justify-content: space-between; align-items: center; }
+        .dash-title { width: 150px; height: 24px; background: rgba(255,255,255,0.1); border-radius: 4px; }
+        .dash-stats { display: flex; gap: 20px; }
+        .stat-box { flex: 1; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 20px; border-radius: 12px; position: relative; overflow: hidden;}
+        .stat-box::before { content: ''; position: absolute; top:0; left:0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent); opacity: 0; transition: 0.5s;}
+        .stat-box:hover::before { opacity: 1; }
+        
+        .stat-value { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 5px; font-family: monospace;}
+        .stat-label { font-size: 0.8rem; color: var(--text-muted); }
 
-        .hero-text-area p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 35px;
-            max-width: 600px;
-        }
-
-        /* HERO IMAGE AREA & CSS */
-        .hero-image-area {
-            position: relative;
-            animation: fadeIn 1.2s ease-out;
-            text-align: center;
-        }
-
-        .hero-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 30px; 
-            box-shadow: var(--glass-shadow); 
-            border: 1px solid var(--glass-border); 
-            transition: transform 0.5s ease;
+        /* The Animated Chart */
+        .chart-box { flex: 1; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; position: relative;}
+        .chart-svg { width: 100%; height: 100%; overflow: visible; }
+        .chart-line { 
+            fill: none; stroke: var(--neon-cyan); stroke-width: 3; stroke-linecap: round;
+            filter: drop-shadow(0px 8px 8px rgba(0, 229, 255, 0.4));
+            stroke-dasharray: 1000; stroke-dashoffset: 1000;
+            animation: drawLine 3s ease-out forwards infinite alternate;
         }
         
-        .hero-image:hover {
-            transform: scale(1.02);
-        }
+        /* --- PARTNER LOGOS --- */
+        .partner-section { padding: 40px 10%; text-align: center; border-bottom: 1px solid var(--border-color); }
+        .partner-section p { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 20px; }
+        .partner-logos { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; opacity: 0.6; }
+        .partner-logos i { font-size: 28px; color: #fff; transition: 0.3s; }
+        .partner-logos i:hover { color: var(--neon-cyan); opacity: 1; transform: scale(1.1); }
 
-        /* BUTTONS DINAICK TARAF (CORPORATE STYLE) */
-        .btn-main {
-            padding: 16px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            display: inline-block;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            border: none;
-            background: -webkit-linear-gradient(45deg, var(--accent-cyan), var(--accent-gold));
-            color: white;
-            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
-        }
+        /* --- FEATURES SECTION --- */
+        .section { padding: 120px 10%; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 15px; }
+        .section-header p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
 
-        .btn-main:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(197, 160, 89, 0.4);
-        }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .feature-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 30px; border-radius: 16px; transition: 0.3s; }
+        .feature-card:hover { border-color: rgba(0, 229, 255, 0.3); background: rgba(255,255,255,0.02); transform: translateY(-5px); }
+        .feature-icon { width: 40px; height: 40px; background: rgba(0, 229, 255, 0.1); color: var(--neon-cyan); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 20px; border: 1px solid rgba(0, 229, 255, 0.2);}
+        .feature-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+        .feature-card p { font-size: 0.9rem; color: var(--text-muted); }
 
-        .btn-outline {
-            padding: 16px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            display: inline-block;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold);
-            margin-left: 20px;
+        /* --- WIDE ABSTRACT BANNER (IDEANEST) --- */
+        .wide-banner {
+            margin: 0 5%; border-radius: 24px; padding: 60px 5%;
+            background: linear-gradient(135deg, #0f172a, #1e1b4b);
+            border: 1px solid var(--border-color); position: relative; overflow: hidden;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px;
         }
-
-        .btn-outline:hover {
-            transform: translateY(-5px);
-            background: rgba(197, 160, 89, 0.1);
+        .wide-banner::before {
+            content: ''; position: absolute; top: 0; right: 0; width: 60%; height: 100%;
+            background: radial-gradient(circle, rgba(177, 75, 244, 0.2) 0%, transparent 70%);
+            mix-blend-mode: screen;
         }
+        .banner-text h2 { font-size: 2rem; margin-bottom: 10px; z-index: 2; position: relative;}
+        .banner-text p { color: var(--text-muted); max-width: 500px; z-index: 2; position: relative;}
+        .btn-secondary { background: rgba(255,255,255,0.1); border: 1px solid var(--border-color); padding: 12px 30px; border-radius: 8px; color: #fff; text-decoration: none; font-weight: 600; transition: 0.3s; z-index: 2; position: relative;}
+        .btn-secondary:hover { background: #fff; color: var(--bg-dark); }
 
-        /* --- PARTNER BAR --- */
-        .partner-bar {
-            padding: 60px 10%;
-            background: rgba(10, 12, 24, 0.5);
-            border-top: 1px solid var(--glass-border);
-            border-bottom: 1px solid var(--glass-border);
-            text-align: center;
-        }
-
-        .partner-bar h4 {
-            font-family: 'Montserrat', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            margin-bottom: 30px;
-        }
-
-        .partner-logos {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            align-items: center;
-            opacity: 0.5;
-            transition: 0.3s;
-            flex-wrap: wrap;
-        }
-        .partner-logos:hover { opacity: 1; }
-        .partner-logos i { font-size: 35px; color: var(--text-light); transition: 0.3s; }
-        .partner-logos i:hover { color: var(--accent-gold); transform: scale(1.1); }
-
-        /* --- KEPAKARAN (BENTO GRID STYLE) --- */
-        .section { padding: 80px 10%; }
-        .section-title { text-align: center; font-family: 'Montserrat', sans-serif; margin-bottom: 60px; font-size: 2.5rem; font-weight: 800; }
+        /* --- BENTO GRID (K-PLAY & DASHBOARD PREVIEW) --- */
+        .bento-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 25px; margin-top: 60px;}
+        .bento-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; position: relative; overflow: hidden; }
         
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
+        /* K-Play Integration inside Bento */
+        .k-play-ui { display: flex; align-items: center; gap: 20px; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 20px;}
+        .k-play-ui .spin-disc { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple)); display: flex; align-items: center; justify-content: center; animation: spin 4s linear infinite;}
+        .k-play-ui .spin-disc::after { content: ''; width: 20px; height: 20px; background: var(--bg-dark); border-radius: 50%; }
+        .k-controls button { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; margin: 0 10px; transition: 0.3s;}
+        .k-controls button:hover { color: var(--neon-cyan); }
+        .k-input { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); border-radius: 6px; color: #fff; }
+        #youtube-player { position: absolute; width: 1px; height: 1px; opacity: 0; } /* Hide iframe */
 
-        .card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            padding: 40px;
-            border-radius: 24px;
-            transition: 0.4s ease;
-            box-shadow: var(--glass-shadow);
-        }
+        /* --- PRICING TIERS --- */
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+        .price-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; display: flex; flex-direction: column; position: relative;}
+        .price-card.popular { border-color: var(--neon-cyan); box-shadow: 0 10px 40px rgba(0, 229, 255, 0.1); transform: scale(1.05); background: linear-gradient(180deg, rgba(0, 229, 255, 0.05) 0%, var(--bg-card) 100%); z-index: 2;}
+        .popular-badge { position: absolute; top: -12px; right: 20px; background: var(--neon-cyan); color: #000; font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 1px;}
+        .tier-name { font-size: 0.9rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 10px; }
+        .tier-price { font-size: 3rem; font-weight: 700; color: #fff; margin-bottom: 20px; }
+        .tier-price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+        .feature-list { list-style: none; margin: 20px 0 40px; flex: 1; }
+        .feature-list li { margin-bottom: 15px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; color: #ccc;}
+        .feature-list li i { color: var(--neon-cyan); }
+        .price-btn { width: 100%; text-align: center; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: transparent; color: #fff; font-weight: 600; text-decoration: none; transition: 0.3s;}
+        .price-btn:hover { background: rgba(255,255,255,0.05); }
+        .popular .price-btn { background: var(--neon-cyan); color: #000; border: none; }
+        .popular .price-btn:hover { background: #fff; }
 
-        .card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--accent-gold);
-        }
+        /* --- FINAL CTA BANNER --- */
+        .cta-banner { margin: 80px 10%; padding: 80px 20px; text-align: center; background: linear-gradient(to right, #001f3f, #003366); border-radius: 24px; border: 1px solid rgba(0, 229, 255, 0.3); position: relative; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5);}
+        .cta-banner h2 { font-size: 2.5rem; margin-bottom: 15px; position: relative; z-index: 2;}
+        .cta-banner p { color: #a0aec0; margin-bottom: 30px; position: relative; z-index: 2;}
 
-        .card i { font-size: 30px; color: var(--accent-gold); margin-bottom: 20px; }
-        .card h3 { font-family: 'Montserrat', sans-serif; margin-bottom: 15px; font-size: 1.3rem; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; }
-
-        /* --- CAROUSEL (PROMOSI) --- */
-        .carousel-container {
-            position: relative; max-width: 900px; margin: 0 auto;
-            background: var(--glass-bg); backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border); border-radius: 30px;
-            overflow: hidden; box-shadow: var(--glass-shadow); min-height: 380px;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .carousel-slide {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0; visibility: hidden; transition: opacity 0.8s ease, transform 0.8s ease;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            text-align: center; padding: 40px 60px; transform: scale(0.95);
-        }
-        .carousel-slide.active { opacity: 1; visibility: visible; transform: scale(1); z-index: 2; }
+        /* --- FOOTER --- */
+        footer { border-top: 1px solid var(--border-color); padding: 40px 10%; display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.9rem; }
         
-        .promo-badge {
-            background: rgba(197, 160, 89, 0.15); color: var(--accent-gold);
-            padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;
-            border: 1px solid rgba(197, 160, 89, 0.3); margin-bottom: 20px; letter-spacing: 1px;
-        }
-        .carousel-slide h3 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; margin-bottom: 20px; color: #fff; }
-        .carousel-slide p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; max-width: 600px; }
-        
-        .carousel-indicators {
-            position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
-            display: flex; gap: 10px; z-index: 10;
-        }
-        .dot { width: 12px; height: 12px; background: rgba(255,255,255,0.2); border-radius: 50%; cursor: pointer; transition: 0.3s; }
-        .dot.active { background: var(--accent-cyan); transform: scale(1.3); box-shadow: 0 0 10px var(--accent-cyan); }
-
-        /* --- CONTACT, OFFERS & IDEANEST --- */
-        .offer-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 30px;
-            padding: 50px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .offer-text h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 20px; color: var(--text-light); }
-        .offer-text .price { font-size: 4rem; font-weight: 800; color: var(--accent-cyan); line-height: 1; margin-bottom: 20px; }
-        .offer-text p { font-size: 1.1rem; margin-bottom: 20px; color: var(--text-muted); }
-
-        .steps-container { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
-        .step { background: rgba(0,0,0,0.3); padding: 15px 20px; border-radius: 12px; border: 1px solid var(--glass-border); font-size: 0.9rem; }
-        .step i { color: var(--accent-gold); margin-right: 10px; font-size: 1.2rem; }
-
-        /* --- K-PLAY (ENTERTAINMENT) CSS --- */
-        .k-play-container {
-            max-width: 800px; margin: 0 auto;
-            background: var(--glass-bg); backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border); border-radius: 20px;
-            display: flex; padding: 20px; box-shadow: var(--glass-shadow);
-            align-items: center; gap: 30px;
-        }
-
-        .video-wrapper {
-            position: relative; width: 200px; height: 200px;
-            border-radius: 15px; overflow: hidden; border: 2px solid rgba(255,255,255,0.1); flex-shrink: 0;
-        }
-
-        #youtube-player { width: 100%; height: 100%; pointer-events: none; }
-
-        .music-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(10, 12, 24, 0.6); display: flex; justify-content: center; align-items: center;
-            pointer-events: none;
-        }
-
-        .player-controls { flex-grow: 1; display: flex; flex-direction: column; gap: 20px; }
-
-        .now-playing h4 {
-            font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 5px;
-            color: var(--text-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 400px;
-        }
-
-        .custom-song-input { display: flex; gap: 10px; }
-        .custom-song-input input {
-            flex-grow: 1; padding: 10px 15px; border-radius: 10px; border: 1px solid var(--glass-border);
-            background: rgba(0,0,0,0.3); color: white; font-family: 'Inter', sans-serif;
-        }
-        .custom-song-input input:focus { outline: none; border-color: var(--accent-cyan); }
-
-        .btn-load {
-            background: var(--accent-cyan); color: #fff; border: none; padding: 10px 20px;
-            border-radius: 10px; font-weight: 600; cursor: pointer; transition: 0.3s;
-        }
-        .btn-load:hover { background: var(--accent-gold); color: #000; }
-
-        .control-buttons { display: flex; gap: 20px; align-items: center; }
-
-        .ctrl-btn {
-            background: var(--accent-gold); color: #000; border: none; width: 50px; height: 50px;
-            border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex;
-            justify-content: center; align-items: center; transition: 0.3s; box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3);
-        }
-        .ctrl-btn:hover { transform: scale(1.1); background: #fff; }
-
-        .volume-control { display: flex; align-items: center; gap: 15px; color: var(--text-muted); }
-        .volume-control input[type=range] { flex-grow: 1; max-width: 200px; accent-color: var(--accent-cyan); }
-
-        /* --- WHATSAPP FLOAT --- */
-        .wa-float {
-            position: fixed; bottom: 40px; right: 40px; background: #25d366;
-            width: 60px; height: 60px; border-radius: 50%; display: flex;
-            align-items: center; justify-content: center; color: white;
-            font-size: 30px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-            z-index: 1000; text-decoration: none; transition: 0.3s;
-        }
+        /* WHATSAPP FLOAT */
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 30px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); z-index: 1000; transition: 0.3s; }
         .wa-float:hover { transform: scale(1.1); }
 
-        /* --- ANIMATIONS --- */
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s all ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* --- KEYFRAMES --- */
+        @keyframes drawLine { 0% { stroke-dashoffset: 1000; } 100% { stroke-dashoffset: 0; } }
+        @keyframes floatUI { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes blinkNumber { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
 
-        footer { padding: 40px; text-align: center; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--glass-border); margin-top: 50px;}
-
-        /* --- RESPONSIVE MEDIA QUERIES --- */
-        @media (max-width: 768px) {
-            .hero { text-align: center; padding-top: 100px; }
-            .hero-content { grid-template-columns: 1fr; }
-            .hero-image-area { margin-bottom: 20px; order: -1; } /* Gambar duduk di atas di mobile */
-            .btn-outline { margin-left: 0; margin-top: 15px; width: 100%; }
-            .btn-main { width: 100%; }
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2.8rem; }
+            .mockup-body { flex-direction: column; height: auto; }
+            .mockup-sidebar { width: 100%; height: 60px; flex-direction: row; border-right: none; border-bottom: 1px solid var(--border-color); }
+            .dash-stats { flex-direction: column; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .price-card.popular { transform: scale(1); }
             nav ul { display: none; }
-            .offer-container { grid-template-columns: 1fr; padding: 30px; }
-            .k-play-container { flex-direction: column; text-align: center; }
-            .now-playing h4 { max-width: 100%; }
-            .control-buttons { justify-content: center; }
-            .custom-song-input { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-mid"></div>
+    <div class="ambient-glow glow-bottom"></div>
+
     <nav>
-        <div class="logo">KE<span>TICK</span></div>
+        <div class="logo"><i class="fas fa-layer-group"></i> KETICK</div>
         <ul>
-            <li><a href="#home">Utama</a></li>
-            <li><a href="#about">Kepakaran</a></li>
-            <li><a href="#promosi">Sistem KETICK</a></li>
+            <li><a href="#features">Fungsi</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#pricing">Harga</a></li>
             <li><a href="#ideanest">IdeaNest</a></li>
-            <li><a href="#entertainment">K-Play</a></li>
         </ul>
+        <a href="https://wa.me/601123266755" class="nav-btn" target="_blank">Hubungi Kami</a>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text-area">
-                <h1>Sistem Digital & <span>Realisasi Visi</span></h1>
-                <p>Dari membina sistem jualan berprestasi tinggi hingga menukar idea perisian anda menjadi realiti perniagaan. Kami adalah rakan teknologi tempatan anda.</p>
-                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                    <a href="#promosi" class="btn btn-main">Lihat Sistem Kami</a>
-                    <a href="#ideanest" class="btn btn-outline">Teroka IdeaNest</a>
-                </div>
-            </div>
+    <section class="hero">
+        <div class="eyebrow"><i class="fas fa-check-circle"></i> Pilihan #1 Usahawan Malaysia</div>
+        <h1>Urus Bisnes Anda Dengan<br><span>Automasi Pintar KETICK</span></h1>
+        <p>Dari membina sistem jualan berprestasi tinggi hingga menukar idea perisian anda menjadi realiti. Antaramuka moden yang dibina 100% khas untuk kelajuan.</p>
+        <a href="#pricing" class="btn-primary">Mula Projek Anda Sekarang</a>
 
-            <div class="hero-image-area">
-                <img src="hero-ketick.jpg" alt="Ilustrasi Digital KETICK" class="hero-image">
+        <div class="dashboard-showcase">
+            <div class="dashboard-glow"></div>
+            <div class="mockup-window">
+                <div class="mockup-header">
+                    <div class="mac-dot red"></div><div class="mac-dot yellow"></div><div class="mac-dot green"></div>
+                </div>
+                <div class="mockup-body">
+                    <div class="mockup-sidebar">
+                        <div class="side-item active"></div>
+                        <div class="side-item" style="width: 80%;"></div>
+                        <div class="side-item" style="width: 60%;"></div>
+                        <div class="side-item" style="width: 90%; margin-top: auto;"></div>
+                    </div>
+                    <div class="mockup-content">
+                        <div class="dash-header">
+                            <div class="dash-title"></div>
+                            <div class="dash-title" style="width: 80px; background: rgba(0, 229, 255, 0.2);"></div>
+                        </div>
+                        <div class="dash-stats">
+                            <div class="stat-box">
+                                <div class="stat-label">Jumlah Jualan (Harian)</div>
+                                <div class="stat-value" id="live-sales">RM 14,230</div> 
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-label">Trafik Pelanggan</div>
+                                <div class="stat-value" style="color: var(--neon-cyan);">+ 42.8%</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-label">Kapasiti Server</div>
+                                <div class="stat-value">98.4%</div>
+                            </div>
+                        </div>
+                        <div class="chart-box">
+                            <div class="stat-label" style="margin-bottom: 15px;">Analitik Prestasi Langsung</div>
+                            <svg class="chart-svg" viewBox="0 0 500 100" preserveAspectRatio="none">
+                                <polyline class="chart-line" points="0,80 50,70 100,90 150,40 200,60 250,20 300,50 350,10 400,30 450,5 500,15"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <div class="partner-bar reveal">
-        <h4>RAKAN KONGSI TEKNOLOGI</h4>
+    <div class="partner-section">
+        <p>Infrastruktur dikuasakan oleh</p>
         <div class="partner-logos">
             <i class="fab fa-node-js"></i>
             <i class="fab fa-github"></i>
@@ -438,234 +306,188 @@
         </div>
     </div>
 
-    <section id="about" class="section">
-        <h2 class="section-title reveal">Kenapa Pilih KETICK?</h2>
-        <div class="grid bento-grid">
-            <div class="card reveal">
-                <i class="fas fa-fingerprint"></i>
-                <h3>100% Custom Made</h3>
-                <p>Setiap program dan sistem diolah dan dikodkan sendiri oleh saya. Tiada isu 'template' berat atau fungsi yang tidak perlu.</p>
+    <section id="features" class="section">
+        <div class="section-header">
+            <h2>Analitik Pintar, <span style="color: var(--text-muted);">Kawalan Lancar</span></h2>
+            <p>Sistem kami tidak dibina menggunakan templat biasa. Setiap modul diprogramkan secara manual untuk keperluan spesifik perniagaan anda.</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h3>100% Kod Tersuai</h3>
+                <p>Tiada isu 'lag' atau kod berat. Prestasi maksimum untuk pengurusan data masa nyata (real-time).</p>
             </div>
-            <div class="card reveal">
-                <i class="fas fa-chart-bar"></i>
-                <h3>SEO Tempatan Mantap</h3>
-                <p>Sistem kami mesra carian rakyat Malaysia. Tarik prospek secara organik melalui carian Google dengan kata kunci yang tepat.</p>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-search"></i></div>
+                <h3>Dominasi SEO</h3>
+                <p>Struktur enjin carian terbina dalam untuk menarik lebih ramai prospek tempatan dari Google.</p>
             </div>
-            <div class="card reveal">
-                <i class="fas fa-shield-halved"></i>
-                <h3>Kualiti Korporat</h3>
-                <p>Membawa imej profesional kepada bisnes mikro anda melalui rekaan 'Glassmorphism' yang moden dan dipercayai pelanggan.</p>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>UI Mesra Mudah Alih</h3>
+                <p>Kawal perniagaan dari hujung jari. Rekaan responsif sempurna untuk semua saiz skrin telefon.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-lock"></i></div>
+                <h3>Keselamatan Korporat</h3>
+                <p>Penyulitan data kelas enterprise untuk melindungi maklumat pelanggan dan transaksi anda.</p>
             </div>
         </div>
     </section>
 
-    <section id="promosi" class="section">
-        <h2 class="section-title reveal" style="color: var(--accent-cyan);">Jualan & Promosi Sistem</h2>
-        <p class="reveal" style="text-align: center; color: var(--text-muted); margin-top: -30px; margin-bottom: 40px;">Kesemua program dan perisian di bawah direka, dikodkan dan diselenggara 100% oleh KETICK.</p>
-        
-        <div class="carousel-container reveal" id="systemCarousel">
-            <div class="carousel-slide active">
-                <span class="promo-badge"><i class="fas fa-fire"></i> TERHANGAT - DISKAUN 40%</span>
-                <h3>Sistem POS Mikro & Inventori</h3>
-                <p>Tinggalkan buku nota. Urus stok, rekod jualan harian, dan pantau untung rugi dari telefon pintar anda secara masa nyata.</p>
-                <div style="margin-top: 10px;">
-                    <a href="promosi-pos.html" class="btn btn-main">Lihat Demo & Harga</a>
-                </div>
+    <section id="ideanest" style="padding-bottom: 80px;">
+        <div class="wide-banner">
+            <div class="banner-text">
+                <h2>Realisasikan Idea dengan <span style="color: var(--neon-purple);">IdeaNest</span></h2>
+                <p>Ada idea sistem hebat tapi tiada kemahiran coding? Daftarkan idea anda. Kami bina 100%, kami pasarkan, dan anda jana pendapatan (Profit Sharing).</p>
             </div>
-
-            <div class="carousel-slide">
-                <span class="promo-badge"><i class="fas fa-star"></i> PAKEJ KORPORAT KHAS</span>
-                <h3>Sistem ERP Berpusat (Custom)</h3>
-                <p>Sistem Perancangan Sumber Perusahaan berskala penuh untuk menyatukan pengurusan HR, jualan, operasi, dan kewangan.</p>
-                <div style="margin-top: 10px;">
-                    <a href="promosi-erp.html" class="btn btn-outline">Bincang Spesifikasi</a>
-                </div>
-            </div>
-
-            <div class="carousel-slide">
-                <span class="promo-badge"><i class="fas fa-bolt"></i> PELANCARAN BAHARU</span>
-                <h3>Sistem Pengurusan Ejen & Stokis</h3>
-                <p>Automasikan pengiraan komisen, penjejakan hierarki dari Master Stokis hingga ke Dropship dengan modul gamifikasi.</p>
-                <div style="margin-top: 10px;">
-                    <a href="promosi-ejen.html" class="btn btn-main">Dapatkan Tawaran Ini</a>
-                </div>
-            </div>
-
-            <div class="carousel-indicators">
-                <span class="dot active" onclick="currentSlide(0)"></span>
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-            </div>
+            <a href="ideanest.html" class="btn-secondary">Sertai Program Ini</a>
         </div>
     </section>
 
-    <section id="ideanest" class="section">
-        <div class="feature-banner reveal offer-container">
-            <div class="offer-text" style="grid-column: span 2; text-align: center;">
-                <h2 style="color: var(--accent-gold);">IdeaNest<span style="font-size: 1rem; vertical-align: top;">™</span></h2>
-                <p style="max-width: 700px; margin: 0 auto 30px;">Ada idea sistem atau aplikasi yang hebat tetapi tiada kemahiran <em>coding</em> atau modal? Daftarkan idea anda bersama kami. Kami bina, kami pasarkan, dan anda jana pendapatan pasif!</p>
+    <section id="dashboard" class="section" style="padding-top: 0;">
+        <div class="section-header">
+            <h2>Ekosistem Yang <span style="color: var(--text-muted);">Memahami Anda</span></h2>
+        </div>
+        <div class="bento-grid">
+            <div class="bento-box">
+                <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Hiburan Produktif: K-Play</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Teroka sistem kami sambil ditemani stesen radio rasmi KETICK, atau mainkan *playlist* YouTube pilihan anda sendiri secara terus di sini.</p>
                 
-                <div class="steps-container" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 20px;">
-                    <div class="step"><i class="fas fa-lightbulb"></i><strong>1. Daftar Idea</strong></div>
-                    <div class="step"><i class="fas fa-code"></i><strong>2. KETICK Bina</strong></div>
-                    <div class="step"><i class="fas fa-hand-holding-dollar"></i><strong>3. Profit Sharing</strong></div>
+                <div class="k-play-ui">
+                    <div class="spin-disc"></div>
+                    <div style="flex:1;">
+                        <div id="song-title" style="font-weight: 600; font-size: 1.1rem; margin-bottom: 5px;">Memuatkan K-Play...</div>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" id="yt-url" class="k-input" placeholder="Tampal Link YouTube...">
+                            <button onclick="loadCustomVideo()" style="background:var(--neon-cyan); border:none; padding:0 15px; border-radius:6px; font-weight:600; cursor:pointer;">Main</button>
+                        </div>
+                    </div>
+                    <div class="k-controls">
+                        <button onclick="playVideo()" id="playBtn"><i class="fas fa-play-circle"></i></button>
+                        <button onclick="pauseVideo()" id="pauseBtn" style="display:none;"><i class="fas fa-pause-circle"></i></button>
+                    </div>
                 </div>
-                <a href="ideanest.html" class="btn btn-main">Sertai IdeaNest Sekarang</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="offer-website" class="section">
-        <div class="feature-banner reveal offer-container">
-            <div class="offer-text" style="grid-column: span 2; text-align: center;">
-                <h2>Bina Website Korporat & Jualan</h2>
-                <div style="font-size: 3rem; font-weight: 800; color: var(--accent-cyan); margin-bottom: 10px;">RM99</div>
-                <p style="max-width: 700px; margin: 0 auto 30px;">Pakej eksklusif usahawan mikro. Dapatkan laman web profesional lengkap dengan SEO, Integrasi WhatsApp, dan rekaan Glassmorphism. Kuota terhad untuk 100 terawal sahaja.</p>
-                <a href="bina-website.html" class="btn btn-outline" style="border-color: var(--accent-cyan); color: var(--accent-cyan);">Lihat Pakej Website</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="entertainment" class="section">
-        <h2 class="section-title reveal" style="color: var(--text-light);">
-            K-Play <span style="color: var(--accent-gold); font-size: 1.2rem;">by KETICK</span>
-        </h2>
-        <p class="reveal" style="text-align: center; color: var(--text-muted); margin-top: -30px; margin-bottom: 40px;">
-            Dengar muzik pilihan sambil meneroka sistem kami. Tingkatkan produktiviti anda.
-        </p>
-
-        <div class="k-play-container reveal">
-            <div class="video-wrapper">
                 <div id="youtube-player"></div>
-                <div class="music-overlay">
-                    <i class="fas fa-music" style="font-size: 40px; color: var(--accent-cyan); opacity: 0.5;"></i>
-                </div>
             </div>
 
-            <div class="player-controls">
-                <div class="now-playing">
-                    <h4 id="song-title">Memuatkan K-Play...</h4>
-                    <p style="font-size: 0.8rem; color: var(--accent-gold);">K-Play Station</p>
+            <div class="bento-box" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                <div style="position: relative; width: 120px; height: 120px; border-radius: 50%; border: 8px solid rgba(0, 229, 255, 0.2); border-top-color: var(--neon-cyan); margin-bottom: 20px;">
+                    <span style="position: absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-weight:700; font-size:1.5rem;">100%</span>
                 </div>
-
-                <div class="custom-song-input">
-                    <input type="text" id="yt-url" placeholder="Tampal Link YouTube atau Playlist">
-                    <button onclick="loadCustomVideo()" class="btn-load"><i class="fas fa-search"></i> Mainkan</button>
-                </div>
-
-                <div class="control-buttons">
-                    <button onclick="playVideo()" class="ctrl-btn play-btn" id="playBtn"><i class="fas fa-play"></i></button>
-                    <button onclick="pauseVideo()" class="ctrl-btn pause-btn" style="display:none;" id="pauseBtn"><i class="fas fa-pause"></i></button>
-                </div>
-                
-                <div class="volume-control">
-                    <i class="fas fa-volume-down"></i>
-                    <input type="range" id="volume-slider" min="0" max="100" value="50" onchange="changeVolume(this.value)">
-                    <i class="fas fa-volume-up"></i>
-                </div>
+                <h4>Gamifikasi Ejen</h4>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 10px;">Tingkatkan jualan stokis dengan sistem sasaran prestasi interaktif.</p>
             </div>
         </div>
     </section>
 
-    <footer><p>&copy; 2026 KETICK Solutions. Dibuat dengan teliti oleh anak tempatan.</p></footer>
+    <section id="pricing" class="section">
+        <div class="section-header">
+            <h2>Pilih Pelan Pertumbuhan <span style="color: var(--text-muted);">Sistem Anda</span></h2>
+            <p>Harga telus tanpa kos tersembunyi. Dibina khas dari usahawan untuk usahawan.</p>
+        </div>
+        
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div class="tier-name">Sistem POS Mikro</div>
+                <div class="tier-price">RM199<span>/sekali</span></div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">Urus inventori dan rekod jualan harian dari telefon pintar.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Pengurusan Stok Lanjutan</li>
+                    <li><i class="fas fa-check"></i> Laporan Untung Rugi</li>
+                    <li><i class="fas fa-check"></i> Resit Digital (WhatsApp)</li>
+                </ul>
+                <a href="promosi-pos.html" class="price-btn">Beli Sekarang</a>
+            </div>
+
+            <div class="price-card popular">
+                <div class="popular-badge">PALING LARIS</div>
+                <div class="tier-name" style="color: var(--neon-cyan);">Laman Web Korporat</div>
+                <div class="tier-price">RM99<span>/sekali</span></div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px;">Pakej bina laman web syarikat dan pendaratan jualan eksklusif.</p>
+                <ul class="feature-list" style="color: #fff;">
+                    <li><i class="fas fa-check"></i> Percuma Domain & Hosting (1 Tahun)</li>
+                    <li><i class="fas fa-check"></i> Integrasi Chat WhatsApp</li>
+                    <li><i class="fas fa-check"></i> Reka Bentuk Premium (UI/UX)</li>
+                    <li><i class="fas fa-check"></i> Pengoptimuman Enjin Carian (SEO)</li>
+                </ul>
+                <a href="bina-website.html" class="price-btn">Dapatkan Kuota</a>
+            </div>
+
+            <div class="price-card">
+                <div class="tier-name">ERP Enterprise</div>
+                <div class="tier-price">Custom</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">Sistem bersepadu (HR, Operasi, Kewangan) khas untuk syarikat anda.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Papan Pemuka Khusus</li>
+                    <li><i class="fas fa-check"></i> Had Pengguna Tanpa Had</li>
+                    <li><i class="fas fa-check"></i> Automasi Aliran Kerja</li>
+                </ul>
+                <a href="promosi-erp.html" class="price-btn">Bincang Projek</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-banner">
+        <h2>Ubah Data Menjadi Keuntungan Hari Ini</h2>
+        <p>Sertai ratusan peniaga Malaysia yang telah mendigitalkan operasi mereka bersama KETICK.</p>
+        <a href="https://wa.me/601123266755" class="btn-primary" target="_blank">Konsultasi Percuma Sekarang</a>
+    </div>
+
+    <footer>
+        <div><i class="fas fa-layer-group"></i> <strong>KETICK</strong> Solutions</div>
+        <div>&copy; 2026 Hak Cipta Terpelihara. Dibina di Malaysia.</div>
+    </footer>
 
     <a href="https://wa.me/601123266755" class="wa-float" target="_blank" aria-label="Chat WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        // Scroll Reveal Animation
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal();
+        // --- JAVASCRIPT: SIMULASI NOMBOR JUALAN (Live Effect) ---
+        let salesAmount = 14230;
+        setInterval(() => {
+            // Tambah RM10-RM50 secara rawak setiap 3 saat untuk nampak hidup
+            let increment = Math.floor(Math.random() * 40) + 10;
+            salesAmount += increment;
+            // Format nombor dengan koma
+            let formattedNumber = "RM " + salesAmount.toLocaleString('en-US');
+            
+            let salesElement = document.getElementById('live-sales');
+            salesElement.innerText = formattedNumber;
+            
+            // Animasi kelipan kecil bila nombor bertukar
+            salesElement.style.animation = 'none';
+            salesElement.offsetHeight; /* trigger reflow */
+            salesElement.style.animation = 'blinkNumber 0.5s ease';
+        }, 3000);
 
-        // Carousel Logic
-        let slideIndex = 0;
-        let slides = document.querySelectorAll(".carousel-slide");
-        let dots = document.querySelectorAll(".dot");
-        let slideInterval;
-
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove("active"));
-            dots.forEach(dot => dot.classList.remove("active"));
-            slides[index].classList.add("active");
-            dots[index].classList.add("active");
-            slideIndex = index;
-        }
-
-        function nextSlide() {
-            let nextIndex = (slideIndex + 1) % slides.length;
-            showSlide(nextIndex);
-        }
-
-        function currentSlide(index) {
-            showSlide(index);
-            resetInterval();
-        }
-
-        function startInterval() {
-            slideInterval = setInterval(nextSlide, 5000);
-        }
-
-        function resetInterval() {
-            clearInterval(slideInterval);
-            startInterval();
-        }
-        startInterval();
-    </script>
-
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <script>
+        // --- YOUTUBE IFRAME API SCRIPT (K-PLAY) ---
         var player;
-        
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('youtube-player', {
-                height: '200',
-                width: '200',
-                playerVars: {
-                    'playsinline': 1,
-                    'controls': 0,
-                    'disablekb': 1,
-                    'fs': 0,
-                    'rel': 0,
-                    'listType': 'playlist',
-                    // ID Playlist Rasmi KETICK
-                    'list': 'PLGWbba0pzgZwoaCJp_zTl_4VyjVeuwgYc'
-                },
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                }
+                playerVars: { 'playsinline': 1, 'controls': 0, 'listType': 'playlist', 'list': 'PLGWbba0pzgZwoaCJp_zTl_4VyjVeuwgYc' },
+                events: { 'onReady': onPlayerReady, 'onStateChange': onPlayerStateChange }
             });
         }
 
         function onPlayerReady(event) {
             player.setVolume(50);
-            document.getElementById('song-title').innerText = "KETICK Official Station 🎧";
+            document.getElementById('song-title').innerText = "KETICK Official Mix 🎵";
         }
 
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.PLAYING) {
                 document.getElementById('playBtn').style.display = 'none';
-                document.getElementById('pauseBtn').style.display = 'flex';
+                document.getElementById('pauseBtn').style.display = 'inline-block';
             } else {
-                document.getElementById('playBtn').style.display = 'flex';
+                document.getElementById('playBtn').style.display = 'inline-block';
                 document.getElementById('pauseBtn').style.display = 'none';
             }
         }
 
         function playVideo() { player.playVideo(); }
         function pauseVideo() { player.pauseVideo(); }
-        function changeVolume(val) { player.setVolume(val); }
 
         function loadCustomVideo() {
             var url = document.getElementById('yt-url').value;
@@ -673,29 +495,26 @@
             var videoId = extractVideoID(url);
             
             if (playlistId) {
-                player.loadPlaylist({
-                    list: playlistId,
-                    listType: 'playlist'
-                });
-                document.getElementById('song-title').innerText = "Playlist Pilihan Pengguna 🎧";
+                player.loadPlaylist({ list: playlistId, listType: 'playlist' });
+                document.getElementById('song-title').innerText = "Playlist Anda 🎧";
             } else if(videoId) {
                 player.loadVideoById(videoId);
-                document.getElementById('song-title').innerText = "Lagu Pilihan Pengguna 🎧";
+                document.getElementById('song-title').innerText = "Lagu Anda 🎧";
             } else {
-                alert("Sila masukkan link YouTube atau Playlist yang sah!");
+                alert("Masukkan link YouTube yang sah!");
             }
         }
 
         function extractVideoID(url) {
             var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
             var match = url.match(regExp);
-            if (match && match[2].length == 11) { return match[2]; } else { return null; }
+            return (match && match[2].length == 11) ? match[2] : null;
         }
 
         function extractPlaylistID(url) {
             var regExp = /[?&]list=([^#\&\?]+)/;
             var match = url.match(regExp);
-            if (match && match[1]) { return match[1]; } else { return null; }
+            return (match && match[1]) ? match[1] : null;
         }
     </script>
 </body>
