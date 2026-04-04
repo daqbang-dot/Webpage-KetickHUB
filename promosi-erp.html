@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KETICK ERP | Automasi Enterprise Malaysia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --bg-dark: #03040b; --bg-card: #0c0f1d; --neon-blue: #2970ff; --text-muted: #8b92a5; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-dark); color: #fff; line-height: 1.6; }
+        
+        .maintenance-bar {
+            background: linear-gradient(90deg, #6366f1, #4338ca);
+            color: #fff; text-align: center; padding: 10px; font-weight: 800; font-size: 0.8rem;
+            letter-spacing: 2px; text-transform: uppercase; position: sticky; top: 0; z-index: 1100;
+        }
+
+        nav { padding: 20px 8%; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: #fff; }
+        .logo span { color: var(--neon-blue); }
+
+        .hero { padding: 80px 8%; text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero h1 span { color: var(--neon-blue); }
+        .content-placeholder { 
+            max-width: 800px; margin: 0 auto; padding: 60px; background: var(--bg-card); 
+            border-radius: 24px; border: 1px dashed var(--neon-blue); opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="maintenance-bar"><i class="fas fa-hourglass-half"></i> SECTION UNDER MAINTENANCE - DETAIL COMING SOON</div>
+    <nav><a href="/" class="logo">KE<span>TICK</span> ERP</a><a href="/" style="color:var(--text-muted); text-decoration:none;">← Kembali</a></nav>
+    <section class="hero">
+        <h1>Sistem <span>ERP Korporat</span></h1>
+        <p style="color:var(--text-muted); margin-bottom:40px;">Penyelarasan data HR, Operasi & Kewangan dalam satu papan pemuka (custom-made).</p>
+        <div class="content-placeholder">
+            <i class="fas fa-network-wired" style="font-size: 4rem; margin-bottom: 20px; color: var(--neon-blue);"></i>
+            <h3>Analitik Sedang Dijana</h3>
+            <p>Bahagian ini akan memaparkan modul automasi perniagaan yang kami tawarkan. Sila kembali esok.</p>
+        </div>
+    </section>
+    <script>
+        if (window.location.pathname.endsWith('.html')) {
+            window.history.replaceState({}, '', window.location.pathname.replace('.html', ''));
+        }
+    </script>
+</body>
+</html>
