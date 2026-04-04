@@ -195,7 +195,7 @@
         .k-controls button:hover { color: var(--neon-cyan); }
         .k-input { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); border-radius: 6px; color: #fff; }
         
-        /* HIDDEN PLAYER BUT VISIBLE TO API - FIXED FOR PLAYBACK */
+        /* HIDDEN PLAYER BUT VISIBLE TO API - FIXED POSITION */
         #youtube-player { position: absolute; top: -1000px; left: -1000px; width: 200px; height: 200px; opacity: 0.01; pointer-events: none;} 
 
         /* --- PRICING TIERS --- */
@@ -282,6 +282,10 @@
                         <div class="side-item" style="width: 90%; margin-top: auto;"></div>
                     </div>
                     <div class="mockup-content">
+                        <div class="dash-header">
+                            <div class="dash-title"></div>
+                            <div class="dash-title" style="width: 80px; background: rgba(0, 229, 255, 0.2);"></div>
+                        </div>
                         <div class="dash-stats">
                             <div class="stat-box">
                                 <div class="stat-label">Jumlah Jualan (Harian)</div>
@@ -394,6 +398,11 @@
     </section>
 
     <section id="pricing" class="section">
+        <div class="section-header">
+            <h2>Pilih Pelan Pertumbuhan <span style="color: var(--text-muted);">Sistem Anda</span></h2>
+            <p>Harga telus tanpa kos tersembunyi. Dibina khas dari usahawan untuk usahawan.</p>
+        </div>
+        
         <div class="pricing-grid">
             <div class="price-card">
                 <div class="tier-name">Sistem POS Mikro</div>
@@ -414,6 +423,7 @@
                 <ul class="feature-list" style="color: #fff;">
                     <li><i class="fas fa-check"></i> Percuma Domain & Hosting (1 Tahun)</li>
                     <li><i class="fas fa-check"></i> Integrasi Chat WhatsApp</li>
+                    <li><i class="fas fa-check"></i> Reka Bentuk Premium (UI/UX)</li>
                     <li><i class="fas fa-check"></i> Pengoptimuman Enjin Carian (SEO)</li>
                 </ul>
                 <a href="bina-website.html" class="price-btn">Dapatkan Kuota</a>
@@ -439,10 +449,13 @@
 
     <footer>
         <div><strong>KETICK</strong> Solutions</div>
-        <div>&copy; 2026 Malaysia.</div>
+        <div style="font-size: 0.7rem; opacity: 0.3; max-width: 400px; text-align: center;">Penyedia solusi perisian, sistem POS, ERP, dan bina website murah di Malaysia. Berkhidmat untuk semua usahawan mikro dan PKS.</div>
+        <div>&copy; 2026 Hak Cipta Terpelihara. Dibina di Malaysia.</div>
     </footer>
 
-    <a href="https://wa.me/601123266755" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/601123266755" class="wa-float" target="_blank" aria-label="Chat WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
         // 1. LIVE SALES EFFECT
@@ -453,7 +466,7 @@
             if(el) el.innerText = "RM " + salesAmount.toLocaleString('en-US');
         }, 3000);
 
-        // 2. YOUTUBE API LOGIC (Mesti diletakkan SEBELUM script API dimuatkan)
+        // 2. YOUTUBE API LOGIC (RE-INITIALIZED FOR PLAYLIST)
         var player;
         
         function onYouTubeIframeAPIReady() {
@@ -465,7 +478,7 @@
                     'playsinline': 1, 
                     'controls': 0, 
                     'listType': 'playlist', 
-                    'list': 'PLGWbba0pzgZwoaCJp_zTl_4VyjVeuwgYc', // PLAYLIST ID KETICK
+                    'list': 'PLGWbba0pzgZwoaCJp_zTl_4VyjVeuwgYc', // PLAYLIST ID KETICK ANDA
                     'origin': window.location.origin
                 },
                 events: { 
@@ -476,7 +489,6 @@
         }
 
         function onPlayerReady(event) {
-            player.setVolume(50);
             document.getElementById('song-title').innerText = "KETICK Official Station 🎧";
         }
 
@@ -498,15 +510,20 @@
 
         function loadCustomVideo() {
             var url = document.getElementById('yt-url').value;
-            var playlistId = extractPlaylistID(url);
-            var videoId = extractVideoID(url);
-            if (playlistId) {
-                player.loadPlaylist({ list: playlistId, listType: 'playlist' });
+            var regExp = /[?&]list=([^#&?]+)/;
+            var match = url.match(regExp);
+            if (match) {
+                player.loadPlaylist({ list: match[1], listType: 'playlist' });
                 document.getElementById('song-title').innerText = "Playlist Pilihan Anda 🎧";
-            } else if(videoId) {
-                player.loadVideoById(videoId);
-                document.getElementById('song-title').innerText = "Lagu Pilihan Anda 🎧";
-            } else { alert("Link tidak sah!"); }
+            } else {
+                var vidMatch = url.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([^#&?]+)/);
+                if (vidMatch) {
+                    player.loadVideoById(vidMatch[1]);
+                    document.getElementById('song-title').innerText = "Lagu Pilihan Anda 🎧";
+                } else {
+                    alert("Link tidak sah!");
+                }
+            }
         }
 
         function extractVideoID(url) {
@@ -521,7 +538,7 @@
             return (match && match[1]) ? match[1] : null;
         }
 
-        // 3. LOAD YOUTUBE API (TRIGGER LOADER)
+        // 3. TRIGGER API LOADER (PENTING!)
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
