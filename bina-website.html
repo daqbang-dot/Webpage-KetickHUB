@@ -27,7 +27,6 @@
             overflow-x: hidden;
         }
 
-        /* Ambient Glow */
         .glow {
             position: fixed; width: 400px; height: 400px; background: rgba(0, 229, 255, 0.1);
             filter: blur(100px); border-radius: 50%; z-index: -1; top: 10%; right: -100px;
@@ -42,7 +41,6 @@
 
         .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; }
 
-        /* Left Side: Info */
         .info-side h1 { font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
         .info-side h1 span { background: linear-gradient(to right, var(--neon-cyan), var(--neon-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .info-side p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 40px; }
@@ -51,7 +49,6 @@
         .feature-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; background: var(--bg-card); padding: 15px; border-radius: 12px; border: 1px solid var(--border-color); }
         .feature-item i { color: var(--neon-cyan); font-size: 1.2rem; }
 
-        /* Right Side: Form */
         .creator-card {
             background: var(--bg-card); padding: 40px; border-radius: 24px; border: 1px solid var(--border-color);
             box-shadow: 0 20px 40px rgba(0,0,0,0.4); position: relative;
@@ -90,8 +87,8 @@
     <div class="glow"></div>
 
     <nav>
-        <a href="index.html" class="logo">KE<span>TICK</span></a>
-        <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">← Kembali</a>
+        <a href="/" class="logo">KE<span>TICK</span></a>
+        <a href="/" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">← Kembali ke Utama</a>
     </nav>
 
     <div class="container">
@@ -164,17 +161,25 @@
     </div>
 
     <script>
+        // --- 1. CLEAN URL LOGIC ---
+        // Membuang '.html' dari bar alamat sebaik sahaja halaman dibuka
+        if (window.location.pathname.endsWith('.html')) {
+            var cleanPath = window.location.pathname.replace('.html', '');
+            window.history.replaceState({}, '', cleanPath);
+        }
+
+        // --- 2. WHATSAPP FORM LOGIC ---
         document.getElementById('creatorForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Ambil data
+            // Ambil data dari input
             const brand = document.getElementById('brandName').value;
             const industry = document.getElementById('industry').value;
             const theme = document.getElementById('colorTheme').value;
             const features = document.getElementById('features').value;
             const desc = document.getElementById('description').value;
 
-            // Bina Prompt AI yang gempak
+            // Bina Prompt AI yang tersusun untuk dihantar ke WhatsApp
             const prompt = `*WEB CREATOR PROMPT (KETICK)*\n\n` +
                            `Sila bina draft website berdasarkan butiran ini:\n` +
                            `1. *Nama Jenama:* ${brand}\n` +
@@ -182,12 +187,12 @@
                            `3. *Tema Warna:* ${theme}\n` +
                            `4. *Fungsi Utama:* ${features}\n` +
                            `5. *Penerangan:* ${desc}\n\n` +
-                           `_Borang dihantar dari halaman bina-website KETICK._`;
+                           `_Dihantar dari ketick.my/bina-website_`;
 
             const encodedPrompt = encodeURIComponent(prompt);
             const whatsappURL = `https://wa.me/601123266755?text=${encodedPrompt}`;
 
-            // Buka WhatsApp
+            // Buka WhatsApp di tab baharu
             window.open(whatsappURL, '_blank');
         });
     </script>
