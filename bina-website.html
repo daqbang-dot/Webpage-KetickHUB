@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bina Website KETICK | Generator Laman Web RM99</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #03040b;
+            --bg-card: #0c0f1d;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --neon-cyan: #00e5ff;
+            --neon-blue: #2970ff;
+            --text-muted: #8b92a5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glow */
+        .glow {
+            position: fixed; width: 400px; height: 400px; background: rgba(0, 229, 255, 0.1);
+            filter: blur(100px); border-radius: 50%; z-index: -1; top: 10%; right: -100px;
+        }
+
+        nav {
+            padding: 25px 8%; border-bottom: 1px solid var(--border-color);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: #fff; }
+        .logo span { color: var(--neon-cyan); }
+
+        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; }
+
+        /* Left Side: Info */
+        .info-side h1 { font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
+        .info-side h1 span { background: linear-gradient(to right, var(--neon-cyan), var(--neon-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .info-side p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 40px; }
+
+        .feature-list { list-style: none; }
+        .feature-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; background: var(--bg-card); padding: 15px; border-radius: 12px; border: 1px solid var(--border-color); }
+        .feature-item i { color: var(--neon-cyan); font-size: 1.2rem; }
+
+        /* Right Side: Form */
+        .creator-card {
+            background: var(--bg-card); padding: 40px; border-radius: 24px; border: 1px solid var(--border-color);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4); position: relative;
+        }
+        .creator-card::before {
+            content: ''; position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+            width: 100px; height: 1px; background: var(--neon-cyan); box-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color);
+            border-radius: 10px; color: #fff; font-family: inherit; transition: 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--neon-cyan); background: rgba(255,255,255,0.07); }
+
+        .btn-submit {
+            width: 100%; padding: 16px; background: linear-gradient(135deg, var(--neon-blue), var(--neon-cyan));
+            border: none; border-radius: 10px; color: #fff; font-weight: 700; font-size: 1rem; cursor: pointer;
+            transition: 0.3s; margin-top: 10px;
+        }
+        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3); }
+
+        .price-tag { font-size: 2rem; font-weight: 800; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .price-tag span { font-size: 0.9rem; color: var(--text-muted); text-decoration: line-through; }
+
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; margin: 30px auto; }
+            .info-side h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow"></div>
+
+    <nav>
+        <a href="index.html" class="logo">KE<span>TICK</span></a>
+        <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">← Kembali</a>
+    </nav>
+
+    <div class="container">
+        <div class="info-side">
+            <div class="price-tag">RM99 <span>RM499</span></div>
+            <h1>Bina <span>Website Impian</span> Anda Hari Ini</h1>
+            <p>Lengkapkan maklumat bisnes anda di sebelah. Teknologi KETICK akan memproses data anda menjadi struktur laman web profesional dalam masa singkat.</p>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <div>
+                        <strong>Siap Pantas</strong>
+                        <p style="font-size: 0.85rem;">Struktur asas siap dalam 24-48 jam.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-globe"></i>
+                    <div>
+                        <strong>Domain & Hosting</strong>
+                        <p style="font-size: 0.85rem;">Percuma untuk tahun pertama.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <div>
+                        <strong>Responsive Design</strong>
+                        <p style="font-size: 0.85rem;">Nampak cantik di iPhone & Android.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="creator-card">
+            <h3 style="margin-bottom: 25px;">Butiran Website</h3>
+            <form id="creatorForm">
+                <div class="form-group">
+                    <label>NAMA JENAMA / BISNES</label>
+                    <input type="text" id="brandName" placeholder="Contoh: KETICK Solutions" required>
+                </div>
+                <div class="form-group">
+                    <label>INDUSTRI</label>
+                    <select id="industry" required>
+                        <option value="Servis">Perkhidmatan / Servis</option>
+                        <option value="Makanan">Makanan & Minuman (F&B)</option>
+                        <option value="Ecommerce">Produk Fizikal (E-commerce)</option>
+                        <option value="Pendidikan">Pendidikan / Kursus</option>
+                        <option value="Lain-lain">Lain-lain</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>WARNA TEMA PILIHAN</label>
+                    <input type="text" id="colorTheme" placeholder="Contoh: Hitam & Gold / Biru SaaS">
+                </div>
+                <div class="form-group">
+                    <label>FUNGSI UTAMA YANG DIMAHUKAN</label>
+                    <textarea id="features" rows="3" placeholder="Contoh: Butang WhatsApp, Katalog Produk, Borang Tempahan..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>PENERANGAN RINGKAS BISNES</label>
+                    <textarea id="description" rows="3" placeholder="Ceritakan apa yang anda jual dan siapa pelanggan anda..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Bina Website Sekarang</button>
+                <p style="text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 15px;">
+                    <i class="fas fa-lock"></i> Maklumat anda selamat & terus dihantar ke WhatsApp KETICK.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('creatorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ambil data
+            const brand = document.getElementById('brandName').value;
+            const industry = document.getElementById('industry').value;
+            const theme = document.getElementById('colorTheme').value;
+            const features = document.getElementById('features').value;
+            const desc = document.getElementById('description').value;
+
+            // Bina Prompt AI yang gempak
+            const prompt = `*WEB CREATOR PROMPT (KETICK)*\n\n` +
+                           `Sila bina draft website berdasarkan butiran ini:\n` +
+                           `1. *Nama Jenama:* ${brand}\n` +
+                           `2. *Industri:* ${industry}\n` +
+                           `3. *Tema Warna:* ${theme}\n` +
+                           `4. *Fungsi Utama:* ${features}\n` +
+                           `5. *Penerangan:* ${desc}\n\n` +
+                           `_Borang dihantar dari halaman bina-website KETICK._`;
+
+            const encodedPrompt = encodeURIComponent(prompt);
+            const whatsappURL = `https://wa.me/601123266755?text=${encodedPrompt}`;
+
+            // Buka WhatsApp
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+</body>
+</html>
