@@ -31,6 +31,7 @@
 
     <style>
         :root {
+            /* DEEP SAAS THEME COLORS */
             --bg-dark: #03040b; 
             --bg-card: #0c0f1d;
             --border-color: rgba(255, 255, 255, 0.08);
@@ -54,16 +55,25 @@
             position: relative;
         }
 
+        /* Ambient Glow Backgrounds */
         .ambient-glow {
-            position: absolute; border-radius: 50%; filter: blur(120px); z-index: -1; opacity: 0.5; pointer-events: none;
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.5;
+            pointer-events: none;
         }
         .glow-top { top: -10%; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: rgba(0, 229, 255, 0.15); }
         .glow-mid { top: 40%; left: -10%; width: 500px; height: 500px; background: rgba(177, 75, 244, 0.1); }
         .glow-bottom { bottom: 10%; right: -10%; width: 700px; height: 700px; background: rgba(41, 112, 255, 0.1); }
 
+        /* --- NAVIGATION --- */
         nav {
-            position: fixed; width: 100%; padding: 20px 8%; background: rgba(3, 4, 11, 0.8); backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+            position: fixed; width: 100%; padding: 20px 8%;
+            background: rgba(3, 4, 11, 0.8); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex; justify-content: space-between; align-items: center; z-index: 1000;
         }
         .logo { font-size: 22px; font-weight: 800; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;}
         .logo i { color: var(--neon-cyan); }
@@ -71,7 +81,9 @@
         nav ul li a { text-decoration: none; color: var(--text-muted); font-weight: 500; font-size: 14px; transition: 0.3s; }
         nav ul li a:hover { color: var(--text-main); }
         .nav-btn { background: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 8px; color: #fff; font-size: 13px; font-weight: 600; text-decoration: none; border: 1px solid var(--border-color); transition: 0.3s;}
+        .nav-btn:hover { background: var(--text-main); color: var(--bg-dark); }
 
+        /* --- HERO SECTION --- */
         .hero { padding: 160px 10% 80px; text-align: center; position: relative; }
         .eyebrow { 
             display: inline-block; padding: 6px 16px; background: rgba(0, 229, 255, 0.1); 
@@ -79,7 +91,10 @@
             font-size: 12px; font-weight: 600; letter-spacing: 1px; margin-bottom: 25px; text-transform: uppercase;
         }
         .hero h1 { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 25px; letter-spacing: -1px; }
-        .hero h1 span { background: linear-gradient(to right, var(--neon-cyan), var(--neon-blue), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero h1 span {
+            background: linear-gradient(to right, var(--neon-cyan), var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
         .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 40px; }
         
         .btn-primary {
@@ -87,10 +102,21 @@
             color: #fff; padding: 15px 35px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px;
             display: inline-block; transition: 0.3s; border: none; box-shadow: 0 10px 25px rgba(0, 229, 255, 0.3);
         }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0, 229, 255, 0.5); }
 
-        .dashboard-showcase { margin-top: 80px; position: relative; }
-        .dashboard-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 80%; background: var(--neon-cyan); filter: blur(150px); opacity: 0.25; z-index: -1; }
-        .mockup-window { width: 100%; max-width: 1000px; margin: 0 auto; background: var(--bg-card); border: 1px solid rgba(0, 229, 255, 0.3); border-radius: 16px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); display: flex; flex-direction: column; animation: floatUI 6s ease-in-out infinite; }
+        /* --- ANIMATED DASHBOARD MOCKUP --- */
+        .dashboard-showcase { margin-top: 80px; position: relative; perspective: 1000px; }
+        .dashboard-glow {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 80%; height: 80%; background: var(--neon-cyan); filter: blur(150px); opacity: 0.25; z-index: -1;
+        }
+        .mockup-window {
+            width: 100%; max-width: 1000px; margin: 0 auto; background: var(--bg-card);
+            border: 1px solid rgba(0, 229, 255, 0.3); border-radius: 16px; overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), 0 0 0 1px var(--border-color);
+            display: flex; flex-direction: column;
+            animation: floatUI 6s ease-in-out infinite;
+        }
         .mockup-header { height: 40px; background: #070913; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; padding: 0 15px; gap: 8px; }
         .mac-dot { width: 10px; height: 10px; border-radius: 50%; background: #444; }
         .mac-dot.red { background: #ff5f56; } .mac-dot.yellow { background: #ffbd2e; } .mac-dot.green { background: #27c93f; }
@@ -99,61 +125,123 @@
         .mockup-sidebar { width: 220px; border-right: 1px solid var(--border-color); padding: 20px; display: flex; flex-direction: column; gap: 15px; }
         .side-item { height: 30px; border-radius: 6px; background: rgba(255,255,255,0.03); width: 100%; }
         .side-item.active { background: rgba(0, 229, 255, 0.1); border-left: 3px solid var(--neon-cyan); }
-        .mockup-content { flex: 1; padding: 30px; display: flex; flex-direction: column; gap: 20px; }
+        .mockup-content { flex: 1; padding: 30px; display: flex; flex-direction: column; gap: 20px; background: radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 100%);}
         
+        .dash-header { display: flex; justify-content: space-between; align-items: center; }
+        .dash-title { width: 150px; height: 24px; background: rgba(255,255,255,0.1); border-radius: 4px; }
         .dash-stats { display: flex; gap: 20px; }
-        .stat-box { flex: 1; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 20px; border-radius: 12px; }
+        .stat-box { flex: 1; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 20px; border-radius: 12px; position: relative; overflow: hidden;}
+        .stat-box::before { content: ''; position: absolute; top:0; left:0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent); opacity: 0; transition: 0.5s;}
+        .stat-box:hover::before { opacity: 1; }
+        
         .stat-value { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 5px; font-family: monospace;}
         .stat-label { font-size: 0.8rem; color: var(--text-muted); }
 
-        .chart-box { flex: 1; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; }
+        .chart-box { flex: 1; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; position: relative;}
         .chart-svg { width: 100%; height: 100%; overflow: visible; }
-        .chart-line { fill: none; stroke: var(--neon-cyan); stroke-width: 3; stroke-linecap: round; filter: drop-shadow(0px 8px 8px rgba(0, 229, 255, 0.4)); stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: drawLine 3s ease-out forwards infinite alternate; }
-
+        .chart-line { 
+            fill: none; stroke: var(--neon-cyan); stroke-width: 3; stroke-linecap: round;
+            filter: drop-shadow(0px 8px 8px rgba(0, 229, 255, 0.4));
+            stroke-dasharray: 1000; stroke-dashoffset: 1000;
+            animation: drawLine 3s ease-out forwards infinite alternate;
+        }
+        
+        /* --- PARTNER LOGOS --- */
         .partner-section { padding: 40px 10%; text-align: center; border-bottom: 1px solid var(--border-color); }
+        .partner-section p { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 20px; }
         .partner-logos { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; opacity: 0.6; }
-        .partner-logos i { font-size: 28px; color: #fff; }
+        .partner-logos i { font-size: 28px; color: #fff; transition: 0.3s; }
+        .partner-logos i:hover { color: var(--neon-cyan); opacity: 1; transform: scale(1.1); }
 
+        /* --- FEATURES SECTION --- */
         .section { padding: 120px 10%; }
         .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 15px; }
+        .section-header p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
         .feature-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 30px; border-radius: 16px; transition: 0.3s; }
-        .feature-icon { width: 40px; height: 40px; background: rgba(0, 229, 255, 0.1); color: var(--neon-cyan); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(0, 229, 255, 0.2);}
+        .feature-card:hover { border-color: rgba(0, 229, 255, 0.3); background: rgba(255,255,255,0.02); transform: translateY(-5px); }
+        .feature-icon { width: 40px; height: 40px; background: rgba(0, 229, 255, 0.1); color: var(--neon-cyan); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 20px; border: 1px solid rgba(0, 229, 255, 0.2);}
+        .feature-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+        .feature-card p { font-size: 0.9rem; color: var(--text-muted); }
 
-        .wide-banner { margin: 0 5%; border-radius: 24px; padding: 60px 5%; background: linear-gradient(135deg, #0f172a, #1e1b4b); border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; }
-        .btn-secondary { background: rgba(255,255,255,0.1); border: 1px solid var(--border-color); padding: 12px 30px; border-radius: 8px; color: #fff; text-decoration: none; font-weight: 600; transition: 0.3s;}
+        /* --- WIDE ABSTRACT BANNER (IDEANEST) --- */
+        .wide-banner {
+            margin: 0 5%; border-radius: 24px; padding: 60px 5%;
+            background: linear-gradient(135deg, #0f172a, #1e1b4b);
+            border: 1px solid var(--border-color); position: relative; overflow: hidden;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px;
+        }
+        .wide-banner::before {
+            content: ''; position: absolute; top: 0; right: 0; width: 60%; height: 100%;
+            background: radial-gradient(circle, rgba(177, 75, 244, 0.2) 0%, transparent 70%);
+            mix-blend-mode: screen;
+        }
+        .banner-text h2 { font-size: 2rem; margin-bottom: 10px; z-index: 2; position: relative;}
+        .banner-text p { color: var(--text-muted); max-width: 500px; z-index: 2; position: relative;}
+        .btn-secondary { background: rgba(255,255,255,0.1); border: 1px solid var(--border-color); padding: 12px 30px; border-radius: 8px; color: #fff; text-decoration: none; font-weight: 600; transition: 0.3s; z-index: 2; position: relative;}
+        .btn-secondary:hover { background: #fff; color: var(--bg-dark); }
 
+        /* --- BENTO GRID (K-PLAY & DASHBOARD PREVIEW) --- */
         .bento-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 25px; margin-top: 60px;}
         .bento-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; position: relative; overflow: hidden; }
         
+        /* K-Play Integration inside Bento */
         .k-play-ui { display: flex; align-items: center; gap: 20px; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 20px;}
-        .spin-disc { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple)); animation: spin 4s linear infinite; animation-play-state: paused; }
-        .k-controls button { background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; margin: 0 10px; }
+        .k-play-ui .spin-disc { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple)); display: flex; align-items: center; justify-content: center; animation: spin 4s linear infinite;}
+        .k-play-ui .spin-disc::after { content: ''; width: 20px; height: 20px; background: var(--bg-dark); border-radius: 50%; }
+        .k-controls button { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; margin: 0 10px; transition: 0.3s;}
+        .k-controls button:hover { color: var(--neon-cyan); }
         .k-input { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); border-radius: 6px; color: #fff; }
         
-        /* HIDDEN PLAYER BUT VISIBLE TO API */
-        #youtube-player { position: absolute; top: -500px; left: -500px; width: 200px; height: 200px; pointer-events: none; opacity: 0.1; }
+        /* HIDDEN PLAYER BUT VISIBLE TO API - FIXED FOR PLAYBACK */
+        #youtube-player { position: absolute; top: -1000px; left: -1000px; width: 200px; height: 200px; opacity: 0.01; pointer-events: none;} 
 
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        .price-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; display: flex; flex-direction: column; }
-        .price-card.popular { border-color: var(--neon-cyan); box-shadow: 0 10px 40px rgba(0, 229, 255, 0.1); transform: scale(1.05); z-index: 2;}
+        /* --- PRICING TIERS --- */
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+        .price-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; display: flex; flex-direction: column; position: relative;}
+        .price-card.popular { border-color: var(--neon-cyan); box-shadow: 0 10px 40px rgba(0, 229, 255, 0.1); transform: scale(1.05); background: linear-gradient(180deg, rgba(0, 229, 255, 0.05) 0%, var(--bg-card) 100%); z-index: 2;}
+        .popular-badge { position: absolute; top: -12px; right: 20px; background: var(--neon-cyan); color: #000; font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 1px;}
+        .tier-name { font-size: 0.9rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 10px; }
+        .tier-price { font-size: 3rem; font-weight: 700; color: #fff; margin-bottom: 20px; }
+        .tier-price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+        .feature-list { list-style: none; margin: 20px 0 40px; flex: 1; }
+        .feature-list li { margin-bottom: 15px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; color: #ccc;}
+        .feature-list li i { color: var(--neon-cyan); }
+        .price-btn { width: 100%; text-align: center; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: transparent; color: #fff; font-weight: 600; text-decoration: none; transition: 0.3s;}
+        .price-btn:hover { background: rgba(255,255,255,0.05); }
+        .popular .price-btn { background: var(--neon-cyan); color: #000; border: none; }
+        .popular .price-btn:hover { background: #fff; }
 
-        .cta-banner { margin: 80px 10%; padding: 80px 20px; text-align: center; background: linear-gradient(to right, #001f3f, #003366); border-radius: 24px; border: 1px solid rgba(0, 229, 255, 0.3); }
+        /* --- FINAL CTA BANNER --- */
+        .cta-banner { margin: 80px 10%; padding: 80px 20px; text-align: center; background: linear-gradient(to right, #001f3f, #003366); border-radius: 24px; border: 1px solid rgba(0, 229, 255, 0.3); position: relative; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5);}
+        .cta-banner h2 { font-size: 2.5rem; margin-bottom: 15px; position: relative; z-index: 2;}
+        .cta-banner p { color: #a0aec0; margin-bottom: 30px; position: relative; z-index: 2;}
 
+        /* --- FOOTER --- */
         footer { border-top: 1px solid var(--border-color); padding: 40px 10%; display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.9rem; }
-        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 30px; z-index: 1000; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        
+        /* WHATSAPP FLOAT */
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 30px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); z-index: 1000; transition: 0.3s; }
+        .wa-float:hover { transform: scale(1.1); }
 
+        /* --- KEYFRAMES --- */
         @keyframes drawLine { 0% { stroke-dashoffset: 1000; } 100% { stroke-dashoffset: 0; } }
         @keyframes floatUI { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         @keyframes spin { 100% { transform: rotate(360deg); } }
         @keyframes blinkNumber { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
 
+        /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
-            .hero h1 { font-size: 2.5rem; }
-            .bento-grid { grid-template-columns: 1fr; }
-            nav ul { display: none; }
+            .hero h1 { font-size: 2.8rem; }
             .mockup-body { flex-direction: column; height: auto; }
-            .mockup-sidebar { width: 100%; height: auto; flex-direction: row; border-right: none; border-bottom: 1px solid var(--border-color); padding: 10px; }
+            .mockup-sidebar { width: 100%; height: 60px; flex-direction: row; border-right: none; border-bottom: 1px solid var(--border-color); }
+            .dash-stats { flex-direction: column; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .price-card.popular { transform: scale(1); }
+            nav ul { display: none; }
         }
     </style>
 </head>
@@ -177,7 +265,7 @@
     <section class="hero">
         <div class="eyebrow"><i class="fas fa-check-circle"></i> Pilihan #1 Usahawan Malaysia</div>
         <h1>Urus Bisnes Anda Dengan<br><span>Automasi Pintar KETICK</span></h1>
-        <p>Bina sistem jualan berprestasi tinggi dan tukar idea perisian anda menjadi realiti. Antaramuka moden yang dibina 100% khas untuk kelajuan tinggi.</p>
+        <p>Dari membina sistem jualan berprestasi tinggi hingga menukar idea perisian anda menjadi realiti. Antaramuka moden yang dibina 100% khas untuk kelajuan.</p>
         <a href="#pricing" class="btn-primary">Mula Projek Anda Sekarang</a>
 
         <div class="dashboard-showcase">
@@ -191,6 +279,7 @@
                         <div class="side-item active"></div>
                         <div class="side-item" style="width: 80%;"></div>
                         <div class="side-item" style="width: 60%;"></div>
+                        <div class="side-item" style="width: 90%; margin-top: auto;"></div>
                     </div>
                     <div class="mockup-content">
                         <div class="dash-stats">
@@ -202,8 +291,13 @@
                                 <div class="stat-label">Trafik Pelanggan</div>
                                 <div class="stat-value" style="color: var(--neon-cyan);">+ 42.8%</div>
                             </div>
+                            <div class="stat-box">
+                                <div class="stat-label">Kapasiti Server</div>
+                                <div class="stat-value">98.4%</div>
+                            </div>
                         </div>
                         <div class="chart-box">
+                            <div class="stat-label" style="margin-bottom: 15px;">Analitik Prestasi Langsung</div>
                             <svg class="chart-svg" viewBox="0 0 500 100" preserveAspectRatio="none">
                                 <polyline class="chart-line" points="0,80 50,70 100,90 150,40 200,60 250,20 300,50 350,10 400,30 450,5 500,15"></polyline>
                             </svg>
@@ -216,7 +310,7 @@
 
     <div class="partner-section">
         <p>Infrastruktur dikuasakan oleh</p>
-        <div class="partner-logos">
+        <div class="partner-logos" aria-label="Teknologi KETICK">
             <i class="fab fa-node-js" title="Node.js"></i>
             <i class="fab fa-github" title="GitHub"></i>
             <i class="fab fa-google" title="Google Services"></i>
@@ -233,17 +327,22 @@
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-bolt"></i></div>
                 <h3>100% Kod Tersuai</h3>
-                <p>Tiada isu 'lag'. Prestasi maksimum untuk pengurusan data masa nyata.</p>
+                <p>Tiada isu 'lag' atau kod berat. Prestasi maksimum untuk pengurusan data masa nyata (real-time).</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-search"></i></div>
                 <h3>Dominasi SEO Tempatan</h3>
-                <p>Menarik lebih ramai prospek tempatan dari Google dengan struktur kata kunci Malaysia.</p>
+                <p>Struktur enjin carian terbina dalam untuk menarik lebih ramai prospek tempatan dari Google.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>UI Mesra Mudah Alih</h3>
+                <p>Kawal perniagaan dari hujung jari. Rekaan responsif sempurna untuk semua saiz skrin telefon.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-lock"></i></div>
                 <h3>Keselamatan Korporat</h3>
-                <p>Penyulitan data kelas enterprise untuk melindungi maklumat transaksi anda.</p>
+                <p>Penyulitan data kelas enterprise untuk melindungi maklumat pelanggan dan transaksi anda.</p>
             </div>
         </div>
     </section>
@@ -252,20 +351,25 @@
         <div class="wide-banner">
             <div class="banner-text">
                 <h2>Realisasikan Idea dengan <span style="color: var(--neon-purple);">IdeaNest</span></h2>
-                <p>Daftarkan idea sistem anda. Kami bina 100%, kami pasarkan, dan anda jana pendapatan pasif.</p>
+                <p>Ada idea sistem hebat tapi tiada kemahiran coding? Daftarkan idea anda. Kami bina 100%, kami pasarkan, dan anda jana pendapatan pasif berterusan.</p>
             </div>
-            <a href="ideanest.html" class="btn-secondary">Sertai Program</a>
+            <a href="ideanest.html" class="btn-secondary">Sertai Program Ini</a>
         </div>
     </section>
 
     <section id="dashboard" class="section" style="padding-top: 0;">
+        <div class="section-header">
+            <h2>Ekosistem Yang <span style="color: var(--text-muted);">Memahami Anda</span></h2>
+        </div>
         <div class="bento-grid">
             <div class="bento-box">
                 <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Hiburan Produktif: K-Play</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Teroka sistem kami sambil ditemani stesen radio rasmi KETICK, atau mainkan *playlist* YouTube pilihan anda sendiri secara terus di sini.</p>
+                
                 <div class="k-play-ui">
                     <div class="spin-disc" id="kplay-disc"></div>
                     <div style="flex:1;">
-                        <div id="song-title" style="font-weight: 600; margin-bottom: 5px;">Memuatkan K-Play...</div>
+                        <div id="song-title" style="font-weight: 600; font-size: 1.1rem; margin-bottom: 5px;">Memuatkan K-Play...</div>
                         <div style="display: flex; gap: 10px;">
                             <input type="text" id="yt-url" class="k-input" placeholder="Tampal Link YouTube...">
                             <button onclick="loadCustomVideo()" style="background:var(--neon-cyan); border:none; padding:0 15px; border-radius:6px; font-weight:600; cursor:pointer;">Main</button>
@@ -279,10 +383,12 @@
                 <div id="youtube-player"></div>
             </div>
 
-            <div class="bento-box" style="text-align: center;">
-                <div style="width: 80px; height: 80px; border: 5px solid var(--neon-cyan); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-weight: 800;">100%</div>
+            <div class="bento-box" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                <div style="position: relative; width: 120px; height: 120px; border-radius: 50%; border: 8px solid rgba(0, 229, 255, 0.2); border-top-color: var(--neon-cyan); margin-bottom: 20px;">
+                    <span style="position: absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-weight:700; font-size:1.5rem;">100%</span>
+                </div>
                 <h4>Gamifikasi Ejen</h4>
-                <p style="color: var(--text-muted); font-size: 0.85rem;">Sistem sasaran prestasi interaktif.</p>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 10px;">Tingkatkan jualan stokis dengan sistem sasaran prestasi interaktif.</p>
             </div>
         </div>
     </section>
@@ -290,17 +396,46 @@
     <section id="pricing" class="section">
         <div class="pricing-grid">
             <div class="price-card">
-                <div style="font-size: 0.8rem; color: var(--text-muted);">SISTEM POS MIKRO</div>
-                <div style="font-size: 2.5rem; font-weight: 800; margin: 15px 0;">RM199</div>
-                <a href="promosi-pos.html" style="color: var(--neon-cyan); text-decoration: none; font-weight: 600;">Beli Sekarang →</a>
+                <div class="tier-name">Sistem POS Mikro</div>
+                <div class="tier-price">RM199<span>/sekali</span></div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">Urus inventori dan rekod jualan harian dari telefon pintar.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Pengurusan Stok Lanjutan</li>
+                    <li><i class="fas fa-check"></i> Laporan Untung Rugi</li>
+                </ul>
+                <a href="promosi-pos.html" class="price-btn">Beli Sekarang</a>
             </div>
+
             <div class="price-card popular">
-                <div style="font-size: 0.8rem; color: var(--neon-cyan);">LAMAN WEB KORPORAT</div>
-                <div style="font-size: 2.5rem; font-weight: 800; margin: 15px 0;">RM99</div>
-                <a href="bina-website.html" style="background: var(--neon-cyan); color: #000; padding: 10px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600;">Dapatkan Kuota</a>
+                <div class="popular-badge">PALING LARIS</div>
+                <div class="tier-name" style="color: var(--neon-cyan);">Laman Web Korporat</div>
+                <div class="tier-price">RM99<span>/sekali</span></div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px;">Pakej bina laman web syarikat dan pendaratan jualan eksklusif.</p>
+                <ul class="feature-list" style="color: #fff;">
+                    <li><i class="fas fa-check"></i> Percuma Domain & Hosting (1 Tahun)</li>
+                    <li><i class="fas fa-check"></i> Integrasi Chat WhatsApp</li>
+                    <li><i class="fas fa-check"></i> Pengoptimuman Enjin Carian (SEO)</li>
+                </ul>
+                <a href="bina-website.html" class="price-btn">Dapatkan Kuota</a>
+            </div>
+
+            <div class="price-card">
+                <div class="tier-name">ERP Enterprise</div>
+                <div class="tier-price">Custom</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">Sistem bersepadu khas untuk syarikat anda.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Papan Pemuka Khusus</li>
+                    <li><i class="fas fa-check"></i> Had Pengguna Tanpa Had</li>
+                </ul>
+                <a href="promosi-erp.html" class="price-btn">Bincang Projek</a>
             </div>
         </div>
     </section>
+
+    <div class="cta-banner">
+        <h2>Ubah Data Menjadi Keuntungan Hari Ini</h2>
+        <a href="https://wa.me/601123266755" class="btn-primary" target="_blank">Konsultasi Percuma</a>
+    </div>
 
     <footer>
         <div><strong>KETICK</strong> Solutions</div>
@@ -330,7 +465,7 @@
                     'playsinline': 1, 
                     'controls': 0, 
                     'listType': 'playlist', 
-                    'list': 'PLGWbba0pzgZwoaCJp_zTl_4VyjVeuwgYc', // Playlist KETICK
+                    'list': 'PLGWbba0pzgZwoaCJp_zTl_4VyjVeuwgYc', // PLAYLIST ID KETICK
                     'origin': window.location.origin
                 },
                 events: { 
@@ -386,7 +521,7 @@
             return (match && match[1]) ? match[1] : null;
         }
 
-        // 3. LOAD YOUTUBE API (ASYNCHRONOUS)
+        // 3. LOAD YOUTUBE API (TRIGGER LOADER)
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
