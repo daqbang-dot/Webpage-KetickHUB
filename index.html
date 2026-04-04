@@ -5,304 +5,311 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>KETICK | Sistem Jualan & Program Bisnes Custom Made Malaysia</title>
-    <meta name="description" content="KETICK menyediakan sistem jualan dan program perniagaan 'built-from-scratch' oleh pakar tempatan. Solusi website murah, sistem stok, dan automasi bisnes untuk peniaga mikro Malaysia.">
-    <meta name="keywords" content="KETICK, buat website murah, sistem jualan malaysia, program bisnes, software pengurusan stok, sistem kedai online, cara urus jualan, sistem ejen dan stokis, sistem custom made, anak tempatan, usahawan mikro malaysia, sistem pos murah">
+    <meta name="description" content="KETICK menyediakan tawaran bina website RM99. Solusi website murah, sistem stok, dan automasi bisnes custom made untuk peniaga mikro Malaysia.">
+    <meta name="keywords" content="KETICK, bina website rm99, buat website murah, sistem jualan malaysia, program bisnes, usahawan mikro malaysia, sistem ejen">
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --cream-bg: #fdfbf7;
-            --glass-bg: rgba(255, 255, 255, 0.4);
+            --primary-dark: #1a252c;
+            --accent-gold: #c5a059;
+            --glass-bg: rgba(255, 255, 255, 0.45);
             --glass-border: rgba(255, 255, 255, 0.6);
-            --primary-corporate: #2c3e50;
-            --accent-color: #d4af37; /* Gold for premium feel */
-            --nebula-soft: linear-gradient(135deg, #fdfbf7 0%, #eef2f3 50%, #e0eafc 100%);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--nebula-soft);
-            color: var(--primary-corporate);
+            background-color: #f8f9fa;
+            color: var(--primary-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* LIGHT NEBULA BACKGROUND EFFECT */
-        body::before {
-            content: "";
+        /* --- ANIMATED NEBULA BACKGROUND --- */
+        .background-container {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
-                        radial-gradient(circle at 80% 70%, rgba(100, 149, 237, 0.1) 0%, transparent 40%);
+            top: 0; left: 0; width: 100vw; height: 100vh;
             z-index: -1;
+            overflow: hidden;
+            background: #fdfbf7;
+        }
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+        .orb:nth-child(1) { width: 500px; height: 500px; background: #e0eafc; top: -10%; left: -10%; animation-delay: 0s; }
+        .orb:nth-child(2) { width: 400px; height: 400px; background: rgba(197, 160, 89, 0.3); bottom: 10%; right: -5%; animation-delay: -5s; }
+        .orb:nth-child(3) { width: 600px; height: 600px; background: #cfdef3; top: 40%; left: 40%; animation-delay: -10s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(100px, 150px) scale(1.2); }
         }
 
-        /* NAVIGATION (GLASSMORPHISM) */
+        /* --- NAVIGATION --- */
         nav {
             position: fixed;
             width: 100%;
             padding: 15px 8%;
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(253, 251, 247, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
         }
-
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--primary-corporate);
-        }
-
-        .logo span { color: var(--accent-color); }
-
+        .logo { font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; letter-spacing: 2px; }
+        .logo span { color: var(--accent-gold); }
         nav ul { display: flex; list-style: none; gap: 30px; }
-        nav ul li a {
-            text-decoration: none;
-            color: var(--primary-corporate);
-            font-weight: 500;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-        nav ul li a:hover { color: var(--accent-color); }
+        nav ul li a { text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 14px; transition: 0.3s; }
+        nav ul li a:hover { color: var(--accent-gold); }
 
-        /* HERO SECTION */
+        /* --- HERO SECTION --- */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 0 10%;
+            padding: 120px 10% 60px;
         }
-
-        .hero-content {
+        .hero-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 60px 40px;
+            box-shadow: var(--glass-shadow);
             max-width: 900px;
-            animation: fadeIn 1.2s ease-out;
+            animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; font-weight: 800; }
+        .hero p { font-size: 1.1rem; color: #444; margin-bottom: 35px; max-width: 700px; margin-inline: auto; }
 
-        .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #555;
-            margin-bottom: 35px;
-        }
-
-        /* BUTTONS */
+        /* --- BUTTONS --- */
         .btn {
             padding: 16px 40px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: 0.4s;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: inline-block;
             font-family: 'Montserrat', sans-serif;
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            cursor: pointer;
+            border: none;
         }
+        .btn-main { background: var(--primary-dark); color: white; box-shadow: 0 10px 20px rgba(26, 37, 44, 0.2); }
+        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(26, 37, 44, 0.3); }
+        .btn-gold { background: var(--accent-gold); color: white; }
+        .btn-gold:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(197, 160, 89, 0.4); }
 
-        .btn-main {
-            background: var(--primary-corporate);
-            color: white;
-            box-shadow: 0 10px 20px rgba(44, 62, 80, 0.2);
-        }
-
-        .btn-main:hover {
-            transform: translateY(-3px);
-            background: #34495e;
-            box-shadow: 0 15px 25px rgba(44, 62, 80, 0.3);
-        }
-
-        /* SECTION STYLING */
-        .section { padding: 100px 10%; }
-        .section-title {
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;
-            margin-bottom: 60px;
-            font-size: 2.2rem;
-        }
-
-        /* GLASS CARD STYLING */
-        .grid {
+        /* --- BENTO GRID SECTIONS --- */
+        .section { padding: 80px 10%; }
+        .section-title { text-align: center; font-family: 'Montserrat', sans-serif; margin-bottom: 50px; font-size: 2.5rem; font-weight: 800; }
+        
+        .bento-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: minmax(250px, auto);
+            gap: 25px;
         }
-
-        .card {
+        .bento-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
-            padding: 40px;
-            border-radius: 20px;
-            transition: 0.4s ease;
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: var(--glass-shadow);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
+        .bento-card:hover { transform: translateY(-8px); background: rgba(255, 255, 255, 0.65); border-color: var(--accent-gold); }
+        .bento-card i { font-size: 35px; color: var(--accent-gold); margin-bottom: 20px; }
+        .bento-card h3 { font-family: 'Montserrat', sans-serif; margin-bottom: 15px; font-size: 1.3rem; }
+        
+        /* Make first card span 2 columns */
+        .bento-span-2 { grid-column: span 2; }
 
-        .card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.7);
-        }
-
-        .card i {
-            font-size: 30px;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-
-        /* CONVERSION WIDGET */
-        .promo-banner {
-            background: white;
-            border: 2px solid var(--accent-color);
-            padding: 50px;
+        /* --- RM99 AI PROMPT FORM SECTION --- */
+        .offer-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--accent-gold);
             border-radius: 30px;
-            text-align: center;
-            margin-top: 50px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(197, 160, 89, 0.1);
         }
+        .offer-text h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 20px; color: var(--primary-dark); }
+        .offer-text .price { font-size: 4rem; font-weight: 800; color: var(--accent-gold); line-height: 1; margin-bottom: 20px; }
+        .offer-text p { font-size: 1.1rem; margin-bottom: 20px; }
 
-        .countdown {
+        .ai-form {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             gap: 15px;
-            margin: 25px 0;
         }
-
-        .time-unit {
-            background: var(--cream-bg);
+        .input-group { display: flex; flex-direction: column; gap: 5px; }
+        .input-group label { font-size: 0.9rem; font-weight: 600; margin-left: 5px; }
+        .ai-form input, .ai-form select, .ai-form textarea {
+            width: 100%;
             padding: 15px;
-            min-width: 70px;
-            border-radius: 10px;
-            border: 1px solid #eee;
-        }
-
-        .time-unit span {
-            display: block;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-corporate);
-        }
-
-        /* WHATSAPP FLOAT */
-        .wa-float {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            background: #25d366;
-            width: 60px; height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 30px;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-            z-index: 1000;
-            text-decoration: none;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.7);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
             transition: 0.3s;
         }
-        .wa-float:hover { transform: scale(1.1); }
+        .ai-form input:focus, .ai-form textarea:focus { outline: none; border-color: var(--accent-gold); background: #fff; box-shadow: 0 0 10px rgba(197, 160, 89, 0.2); }
+        .ai-form textarea { resize: vertical; min-height: 100px; }
 
-        /* ANIMATIONS */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* --- WHATSAPP FLOAT --- */
+        .wa-float {
+            position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 60px; height: 60px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 30px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); z-index: 1000; transition: 0.3s;
         }
+        .wa-float:hover { transform: scale(1.1) rotate(-10deg); }
 
-        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s all ease; }
+        /* --- ANIMATIONS --- */
+        @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        footer {
-            padding: 40px;
-            text-align: center;
-            font-size: 13px;
-            color: #888;
-            border-top: 1px solid #eee;
+        footer { text-align: center; padding: 30px; font-size: 13px; color: #666; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .bento-span-2 { grid-column: span 1; }
+            .offer-container { grid-template-columns: 1fr; padding: 30px; }
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; } /* Simple hide for mobile to keep clean */
         }
     </style>
 </head>
 <body>
 
+    <div class="background-container">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
     <nav>
         <div class="logo">KE<span>TICK</span></div>
         <ul>
             <li><a href="#home">Utama</a></li>
-            <li><a href="#about">Kepakaran</a></li>
-            <li><a href="#promo">Promosi</a></li>
+            <li><a href="#kepakaran">Kepakaran</a></li>
+            <li><a href="#offer-rm99">Tawaran Terhad</a></li>
         </ul>
     </nav>
 
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Solusi Digital <span>Eksklusif</span> Untuk Peniaga Malaysia</h1>
-            <p>Bina sistem jualan dan program bisnes yang diolah khas mengikut keperluan anda. Bukan 'template' biasa, tetapi hasil koding anak tempatan untuk impak maksima.</p>
-            <a href="#promo" class="btn btn-main">Lihat Pakej Sistem</a>
+        <div class="hero-box">
+            <h1>Sistem Bisnes & Laman Web <span>Korporat</span></h1>
+            <p>Tinggalkan pesaing anda. Kami bina sistem jualan yang diolah 100% secara manual (custom-code) untuk kelajuan, keselamatan dan SEO yang memukau prospek di Malaysia.</p>
+            <a href="#offer-rm99" class="btn btn-main">Mula Projek Anda</a>
         </div>
     </section>
 
-    <section id="about" class="section">
-        <h2 class="section-title reveal">Kenapa Pilih KETICK?</h2>
-        <div class="grid">
-            <div class="card reveal">
-                <i class="fas fa-fingerprint"></i>
-                <h3>100% Custom Made</h3>
-                <p>Setiap program dan sistem diolah dan dikodkan sendiri oleh saya. Tiada isu 'template' berat atau fungsi yang tidak perlu.</p>
+    <section id="kepakaran" class="section">
+        <h2 class="section-title reveal">Kepakaran KETICK</h2>
+        <div class="bento-grid">
+            <div class="bento-card bento-span-2 reveal">
+                <i class="fas fa-microchip"></i>
+                <h3>Bukan 'Template' Biasa</h3>
+                <p>Sebagai pembangun perisian tempatan, setiap baris kod ditulis untuk memenuhi spesifikasi unik perniagaan anda. Ini bermaksud tiada fungsi berat yang tidak diperlukan, menjadikan kelajuan website anda optimum.</p>
             </div>
-            <div class="card reveal">
-                <i class="fas fa-chart-bar"></i>
-                <h3>SEO Tempatan Mantap</h3>
-                <p>Sistem kami mesra carian rakyat Malaysia. Tarik prospek secara organik melalui carian Google dengan kata kunci yang tepat.</p>
+            <div class="bento-card reveal">
+                <i class="fas fa-search-dollar"></i>
+                <h3>Dominasi SEO Tempatan</h3>
+                <p>Direka untuk "ranking" tinggi di Google Malaysia dengan struktur kata kunci niat membeli (buyer-intent).</p>
             </div>
-            <div class="card reveal">
-                <i class="fas fa-shield-halved"></i>
-                <h3>Kualiti Korporat</h3>
-                <p>Membawa imej profesional kepada bisnes mikro anda melalui rekaan 'Glassmorphism' yang moden dan dipercayai pelanggan.</p>
+            <div class="bento-card reveal">
+                <i class="fas fa-mobile-screen-button"></i>
+                <h3>Mobile-First UI</h3>
+                <p>Lebih 80% pembeli menggunakan telefon. Paparan UI kami dioptimumkan khas untuk ibu jari pelanggan anda.</p>
+            </div>
+            <div class="bento-card bento-span-2 reveal">
+                <i class="fas fa-lock"></i>
+                <h3>Automasi & Keselamatan Korporat</h3>
+                <p>Dari pengurusan stok hingga kutipan data prospek, semuanya automatik. Sistem ini dilindungi setanding keselamatan gred korporat melalui konsep senibina perisian moden.</p>
             </div>
         </div>
     </section>
 
-    <section id="promo" class="section">
-        <div class="promo-banner reveal">
-            <h2 style="font-family: 'Montserrat';">Tawaran "Early Bird" KETICK</h2>
-            <p>Harga terendah di pasaran untuk <strong>100 pelanggan terawal</strong> sahaja bagi setiap pelancaran sistem baru!</p>
-            
-            <div class="countdown">
-                <div class="time-unit"><span id="days">00</span><small>Hari</small></div>
-                <div class="time-unit"><span id="hours">00</span><small>Jam</small></div>
-                <div class="time-unit"><span id="mins">00</span><small>Min</small></div>
-                <div class="time-unit"><span id="secs">00</span><small>Saat</small></div>
+    <section id="offer-rm99" class="section">
+        <div class="offer-container reveal">
+            <div class="offer-text">
+                <h2>Bina Website AI<br>Pantas & Profesional</h2>
+                <div class="price">RM99</div>
+                <p><strong>Promosi 100 Terawal.</strong> Isikan butiran di sebelah, dan sistem pintar kami (dikawal oleh KETICK) akan mula menjana struktur laman web anda serta merta.</p>
+                <ul style="list-style: none; margin-top: 20px; line-height: 2;">
+                    <li>✅ Percuma Nama Domain & Hosting 1 Tahun</li>
+                    <li>✅ Integrasi Butang WhatsApp</li>
+                    <li>✅ Design Glassmorphism Korporat</li>
+                </ul>
             </div>
 
-            <p style="margin-bottom: 20px; font-weight: 600; color: #e74c3c;">Kuota Masih Ada: <span id="quota">42</span>/100</p>
-            <a href="https://wa.me/601123266755?text=Hai%20KETICK,%20saya%20nak%20jadi%20antara%20100%20yang%20terawal%20untuk%20harga%20terendah." class="btn btn-main">Tempah Slot Anda</a>
+            <form class="ai-form" onsubmit="generateAIPrompt(event)">
+                <div class="input-group">
+                    <label for="bizName">Nama Bisnes / Jenama</label>
+                    <input type="text" id="bizName" placeholder="Contoh: Kopi Malaya HQ" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="bizNiche">Industri / Niche Bisnes</label>
+                    <select id="bizNiche" required>
+                        <option value="" disabled selected>Pilih Industri Anda</option>
+                        <option value="F&B / Makanan">F&B / Makanan</option>
+                        <option value="Kesihatan & Kecantikan">Kesihatan & Kecantikan</option>
+                        <option value="Servis & Perkhidmatan">Servis & Perkhidmatan</option>
+                        <option value="Fesyen & Pakaian">Fesyen & Pakaian</option>
+                        <option value="Lain-lain">Lain-lain</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="bizFeature">Ciri Istimewa Diperlukan</label>
+                    <input type="text" id="bizFeature" placeholder="Contoh: Borang tempahan, Galeri gambar..." required>
+                </div>
+
+                <div class="input-group">
+                    <label for="bizDesc">Terangkan Bisnes Anda Secara Ringkas</label>
+                    <textarea id="bizDesc" placeholder="Kami menjual produk X kepada pelanggan Y untuk menyelesaikan masalah Z..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 10px;">
+                    <i class="fab fa-whatsapp"></i> Hantar Ke WhatsApp KETICK
+                </button>
+            </form>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 KETICK Solutions. Dibuat dengan teliti oleh anak tempatan Malaysia.</p>
+        <p>&copy; 2026 KETICK Solutions. Pembangun Sistem Digital Tempatan.</p>
     </footer>
 
     <a href="https://wa.me/601123266755" class="wa-float" target="_blank">
@@ -324,22 +331,25 @@
         window.addEventListener("scroll", reveal);
         reveal();
 
-        // Countdown Timer
-        var countDate = new Date().getTime() + (2 * 24 * 60 * 60 * 1000); 
-        setInterval(function() {
-            var now = new Date().getTime();
-            var gap = countDate - now;
+        // Convert Form to AI Prompt & Send to WhatsApp
+        function generateAIPrompt(e) {
+            e.preventDefault(); // Elak page refresh
+            
+            // Ambil data dari form
+            const name = document.getElementById('bizName').value;
+            const niche = document.getElementById('bizNiche').value;
+            const feature = document.getElementById('bizFeature').value;
+            const desc = document.getElementById('bizDesc').value;
 
-            var d = Math.floor(gap / (1000 * 60 * 60 * 24));
-            var h = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var m = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
-            var s = Math.floor((gap % (1000 * 60)) / 1000);
+            // Strukturkan menjadi AI Prompt untuk rujukan anda
+            const textToSend = `*TEMPAHAN WEBSITE RM99 (KETICK)*\n\nHai, ini maklumat untuk binaan website saya:\n\n*1. Nama Bisnes:* ${name}\n*2. Industri:* ${niche}\n*3. Ciri Istimewa:* ${feature}\n*4. Penerangan Bisnes:* ${desc}\n\n_Sila jadikan maklumat di atas sebagai prompt AI anda untuk merangka website saya. Terima kasih!_`;
 
-            document.getElementById("days").innerText = d;
-            document.getElementById("hours").innerText = h;
-            document.getElementById("mins").innerText = m;
-            document.getElementById("secs").innerText = s;
-        }, 1000);
+            // Encode URL dan buka WhatsApp
+            const encodedText = encodeURIComponent(textToSend);
+            const whatsappURL = `https://wa.me/601123266755?text=${encodedText}`;
+            
+            window.open(whatsappURL, '_blank');
+        }
     </script>
 </body>
 </html>
