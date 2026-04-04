@@ -4,20 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>KETICK | Sistem Jualan & Program Bisnes Custom Made Malaysia</title>
-    <meta name="description" content="KETICK menyediakan tawaran bina website RM99. Solusi website murah, sistem stok, dan automasi bisnes custom made untuk peniaga mikro Malaysia.">
-    <meta name="keywords" content="KETICK, bina website rm99, buat website murah, sistem jualan malaysia, program bisnes, usahawan mikro malaysia, sistem ejen">
+    <title>KETICK | Sistem Digital & Realisasi Idea Bisnes Malaysia</title>
+    <meta name="description" content="KETICK pakar dalam pembangunan sistem jualan, website korporat, dan merealisasikan idea perisian anda melalui program IdeaNest untuk penjanaan pendapatan pasif.">
+    <meta name="keywords" content="KETICK, bina website rm99, sistem jualan malaysia, program bisnes, usahawan mikro malaysia, IdeaNest, buat duit dengan idea apps, pembangun sistem tempatan">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --primary-dark: #1a252c;
-            --accent-gold: #c5a059;
-            --glass-bg: rgba(255, 255, 255, 0.45);
-            --glass-border: rgba(255, 255, 255, 0.6);
-            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+            /* MEDIUM NEBULA COLOR PALETTE */
+            --bg-base: #0f1123; /* Deep space dark blue/purple */
+            --text-light: #f4f4f9;
+            --text-muted: #b0b3c6;
+            --accent-gold: #d4af37;
+            --accent-cyan: #4facfe;
+            
+            /* DARK GLASSMORPHISM */
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,35 +31,35 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa;
-            color: var(--primary-dark);
+            background-color: var(--bg-base);
+            color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* --- ANIMATED NEBULA BACKGROUND --- */
+        /* --- MEDIUM NEBULA ANIMATED BACKGROUND --- */
         .background-container {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
             z-index: -1;
             overflow: hidden;
-            background: #fdfbf7;
+            background: var(--bg-base);
         }
         .orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.6;
+            filter: blur(90px);
+            opacity: 0.5;
             animation: float 20s infinite alternate ease-in-out;
         }
-        .orb:nth-child(1) { width: 500px; height: 500px; background: #e0eafc; top: -10%; left: -10%; animation-delay: 0s; }
-        .orb:nth-child(2) { width: 400px; height: 400px; background: rgba(197, 160, 89, 0.3); bottom: 10%; right: -5%; animation-delay: -5s; }
-        .orb:nth-child(3) { width: 600px; height: 600px; background: #cfdef3; top: 40%; left: 40%; animation-delay: -10s; }
+        .orb:nth-child(1) { width: 500px; height: 500px; background: #2a0845; top: -10%; left: -10%; } /* Deep Purple */
+        .orb:nth-child(2) { width: 400px; height: 400px; background: rgba(212, 175, 55, 0.2); bottom: 10%; right: -5%; animation-delay: -5s; } /* Soft Gold */
+        .orb:nth-child(3) { width: 600px; height: 600px; background: #00416a; top: 40%; left: 40%; animation-delay: -10s; } /* Ocean Blue */
 
         @keyframes float {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(100px, 150px) scale(1.2); }
+            100% { transform: translate(80px, 120px) scale(1.1); }
         }
 
         /* --- NAVIGATION --- */
@@ -61,7 +67,7 @@
             position: fixed;
             width: 100%;
             padding: 15px 8%;
-            background: rgba(253, 251, 247, 0.7);
+            background: rgba(15, 17, 35, 0.6);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
@@ -73,7 +79,7 @@
         .logo { font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; letter-spacing: 2px; }
         .logo span { color: var(--accent-gold); }
         nav ul { display: flex; list-style: none; gap: 30px; }
-        nav ul li a { text-decoration: none; color: var(--primary-dark); font-weight: 600; font-size: 14px; transition: 0.3s; }
+        nav ul li a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.3s; }
         nav ul li a:hover { color: var(--accent-gold); }
 
         /* --- HERO SECTION --- */
@@ -88,7 +94,6 @@
         .hero-box {
             background: var(--glass-bg);
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
             border-radius: 30px;
             padding: 60px 40px;
@@ -96,8 +101,9 @@
             max-width: 900px;
             animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; font-weight: 800; }
-        .hero p { font-size: 1.1rem; color: #444; margin-bottom: 35px; max-width: 700px; margin-inline: auto; }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; font-weight: 800; }
+        .hero h1 span { background: -webkit-linear-gradient(45deg, var(--accent-cyan), var(--accent-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 35px; max-width: 700px; margin-inline: auto; }
 
         /* --- BUTTONS --- */
         .btn {
@@ -112,17 +118,18 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
-            border: none;
+            border: 1px solid transparent;
         }
-        .btn-main { background: var(--primary-dark); color: white; box-shadow: 0 10px 20px rgba(26, 37, 44, 0.2); }
-        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(26, 37, 44, 0.3); }
-        .btn-gold { background: var(--accent-gold); color: white; }
-        .btn-gold:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(197, 160, 89, 0.4); }
+        .btn-main { background: var(--accent-gold); color: #000; }
+        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(212, 175, 55, 0.3); }
+        .btn-outline { background: transparent; color: var(--text-light); border-color: var(--glass-border); }
+        .btn-outline:hover { background: var(--glass-bg); border-color: var(--accent-gold); transform: translateY(-5px); }
 
-        /* --- BENTO GRID SECTIONS --- */
+        /* --- SECTIONS GENERAL --- */
         .section { padding: 80px 10%; }
         .section-title { text-align: center; font-family: 'Montserrat', sans-serif; margin-bottom: 50px; font-size: 2.5rem; font-weight: 800; }
         
+        /* --- BENTO GRID (KEPAKARAN) --- */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -141,48 +148,40 @@
             flex-direction: column;
             justify-content: center;
         }
-        .bento-card:hover { transform: translateY(-8px); background: rgba(255, 255, 255, 0.65); border-color: var(--accent-gold); }
+        .bento-card:hover { transform: translateY(-8px); background: rgba(255, 255, 255, 0.1); border-color: var(--accent-gold); }
         .bento-card i { font-size: 35px; color: var(--accent-gold); margin-bottom: 20px; }
         .bento-card h3 { font-family: 'Montserrat', sans-serif; margin-bottom: 15px; font-size: 1.3rem; }
-        
-        /* Make first card span 2 columns */
+        .bento-card p { color: var(--text-muted); }
         .bento-span-2 { grid-column: span 2; }
 
-        /* --- RM99 AI PROMPT FORM SECTION --- */
-        .offer-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+        /* --- PROMO & FEATURE BANNERS (WEBSITE & IDEANEST) --- */
+        .feature-banner {
             background: var(--glass-bg);
             backdrop-filter: blur(16px);
-            border: 1px solid var(--accent-gold);
+            border: 1px solid var(--glass-border);
             border-radius: 30px;
-            padding: 50px;
-            box-shadow: 0 20px 40px rgba(197, 160, 89, 0.1);
+            padding: 60px 50px;
+            box-shadow: var(--glass-shadow);
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
         }
-        .offer-text h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 20px; color: var(--primary-dark); }
-        .offer-text .price { font-size: 4rem; font-weight: 800; color: var(--accent-gold); line-height: 1; margin-bottom: 20px; }
-        .offer-text p { font-size: 1.1rem; margin-bottom: 20px; }
+        .feature-banner::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+        }
+        .banner-website::before { background: linear-gradient(90deg, var(--accent-cyan), transparent); }
+        .banner-ideanest::before { background: linear-gradient(90deg, var(--accent-gold), transparent); }
+        
+        .feature-banner h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 20px; }
+        .feature-banner p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; max-width: 600px; margin-inline: auto; }
+        .feature-banner .price { font-size: 3.5rem; font-weight: 800; color: var(--accent-cyan); line-height: 1; margin-bottom: 20px; }
 
-        .ai-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .input-group { display: flex; flex-direction: column; gap: 5px; }
-        .input-group label { font-size: 0.9rem; font-weight: 600; margin-left: 5px; }
-        .ai-form input, .ai-form select, .ai-form textarea {
-            width: 100%;
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid rgba(0,0,0,0.1);
-            background: rgba(255, 255, 255, 0.7);
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
-        .ai-form input:focus, .ai-form textarea:focus { outline: none; border-color: var(--accent-gold); background: #fff; box-shadow: 0 0 10px rgba(197, 160, 89, 0.2); }
-        .ai-form textarea { resize: vertical; min-height: 100px; }
+        /* --- IDEANEST STEPS --- */
+        .steps-container { display: flex; justify-content: center; gap: 20px; margin-bottom: 35px; flex-wrap: wrap; }
+        .step { background: rgba(0,0,0,0.3); padding: 15px 20px; border-radius: 12px; border: 1px solid var(--glass-border); font-size: 0.9rem; flex: 1; min-width: 200px;}
+        .step i { color: var(--accent-gold); margin-bottom: 10px; font-size: 1.5rem; display: block; }
 
         /* --- WHATSAPP FLOAT --- */
         .wa-float {
@@ -197,15 +196,14 @@
         .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        footer { text-align: center; padding: 30px; font-size: 13px; color: #666; }
+        footer { text-align: center; padding: 30px; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--glass-border); margin-top: 50px;}
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .bento-grid { grid-template-columns: 1fr; }
             .bento-span-2 { grid-column: span 1; }
-            .offer-container { grid-template-columns: 1fr; padding: 30px; }
             .hero h1 { font-size: 2.5rem; }
-            nav ul { display: none; } /* Simple hide for mobile to keep clean */
+            nav ul { display: none; }
         }
     </style>
 </head>
@@ -222,94 +220,87 @@
         <ul>
             <li><a href="#home">Utama</a></li>
             <li><a href="#kepakaran">Kepakaran</a></li>
-            <li><a href="#offer-rm99">Tawaran Terhad</a></li>
+            <li><a href="#offer-website">Tawaran</a></li>
+            <li><a href="#ideanest">IdeaNest</a></li>
         </ul>
     </nav>
 
     <section id="home" class="hero">
         <div class="hero-box">
-            <h1>Sistem Bisnes & Laman Web <span>Korporat</span></h1>
-            <p>Tinggalkan pesaing anda. Kami bina sistem jualan yang diolah 100% secara manual (custom-code) untuk kelajuan, keselamatan dan SEO yang memukau prospek di Malaysia.</p>
-            <a href="#offer-rm99" class="btn btn-main">Mula Projek Anda</a>
+            <h1>Sistem Digital & <span>Realisasi Visi</span></h1>
+            <p>Dari membina sistem jualan berprestasi tinggi hingga menukar idea perisian anda menjadi realiti perniagaan. Kami adalah rakan teknologi tempatan anda.</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="#offer-website" class="btn btn-main">Bina Laman Web</a>
+                <a href="#ideanest" class="btn btn-outline">Teroka IdeaNest</a>
+            </div>
         </div>
     </section>
 
     <section id="kepakaran" class="section">
-        <h2 class="section-title reveal">Kepakaran KETICK</h2>
+        <h2 class="section-title reveal">Kenapa KETICK Berbeza?</h2>
         <div class="bento-grid">
             <div class="bento-card bento-span-2 reveal">
                 <i class="fas fa-microchip"></i>
                 <h3>Bukan 'Template' Biasa</h3>
-                <p>Sebagai pembangun perisian tempatan, setiap baris kod ditulis untuk memenuhi spesifikasi unik perniagaan anda. Ini bermaksud tiada fungsi berat yang tidak diperlukan, menjadikan kelajuan website anda optimum.</p>
+                <p>Setiap baris kod ditulis secara manual (custom-code) untuk memenuhi spesifikasi unik perniagaan anda. Tiada fungsi berat yang tidak diperlukan, menjadikan kelajuan sistem anda optimum.</p>
             </div>
             <div class="bento-card reveal">
                 <i class="fas fa-search-dollar"></i>
                 <h3>Dominasi SEO Tempatan</h3>
-                <p>Direka untuk "ranking" tinggi di Google Malaysia dengan struktur kata kunci niat membeli (buyer-intent).</p>
+                <p>Sistem direka untuk "ranking" tinggi di Google Malaysia dengan struktur kata kunci niat membeli (buyer-intent).</p>
             </div>
             <div class="bento-card reveal">
                 <i class="fas fa-mobile-screen-button"></i>
                 <h3>Mobile-First UI</h3>
-                <p>Lebih 80% pembeli menggunakan telefon. Paparan UI kami dioptimumkan khas untuk ibu jari pelanggan anda.</p>
+                <p>Lebih 80% pembeli menggunakan telefon pintar. Paparan UI kami dioptimumkan khas untuk konversi pengguna mudah alih.</p>
             </div>
             <div class="bento-card bento-span-2 reveal">
                 <i class="fas fa-lock"></i>
                 <h3>Automasi & Keselamatan Korporat</h3>
-                <p>Dari pengurusan stok hingga kutipan data prospek, semuanya automatik. Sistem ini dilindungi setanding keselamatan gred korporat melalui konsep senibina perisian moden.</p>
+                <p>Dari pengurusan stok hingga kutipan data prospek, semuanya automatik. Dilindungi setanding keselamatan gred korporat melalui senibina perisian terkini.</p>
             </div>
         </div>
     </section>
 
-    <section id="offer-rm99" class="section">
-        <div class="offer-container reveal">
-            <div class="offer-text">
-                <h2>Bina Website AI<br>Pantas & Profesional</h2>
-                <div class="price">RM99</div>
-                <p><strong>Promosi 100 Terawal.</strong> Isikan butiran di sebelah, dan sistem pintar kami (dikawal oleh KETICK) akan mula menjana struktur laman web anda serta merta.</p>
-                <ul style="list-style: none; margin-top: 20px; line-height: 2;">
-                    <li>✅ Percuma Nama Domain & Hosting 1 Tahun</li>
-                    <li>✅ Integrasi Butang WhatsApp</li>
-                    <li>✅ Design Glassmorphism Korporat</li>
-                </ul>
+    <section id="offer-website" class="section">
+        <div class="feature-banner banner-website reveal">
+            <h2>Bina Website Korporat & Jualan</h2>
+            <div class="price">RM99</div>
+            <p>Pakej eksklusif untuk usahawan mikro! Dapatkan laman web profesional lengkap dengan SEO, Integrasi WhatsApp, dan rekaan Glassmorphism idaman. Kuota terhad untuk 100 terawal sahaja.</p>
+            
+            <a href="bina-website.html" class="btn btn-outline" style="border-color: var(--accent-cyan); color: var(--accent-cyan);">Lihat Pakej & Tempah</a>
+        </div>
+    </section>
+
+    <section id="ideanest" class="section">
+        <div class="feature-banner banner-ideanest reveal">
+            <h2 style="color: var(--accent-gold);">IdeaNest<span style="font-size: 1rem; vertical-align: top;">™</span></h2>
+            <p>Ada idea sistem atau aplikasi yang hebat tetapi tiada kemahiran <em>coding</em> atau modal? Daftarkan idea anda bersama kami. Kami bina, kami pasarkan, dan anda jana pendapatan pasif!</p>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>1. Daftar Idea</strong><br>
+                    <span style="color: var(--text-muted);">Hantar kertas kerja atau konsep perisian anda.</span>
+                </div>
+                <div class="step">
+                    <i class="fas fa-code"></i>
+                    <strong>2. KETICK Bina</strong><br>
+                    <span style="color: var(--text-muted);">Kami bangunkan sistem tersebut 100% tanpa kos upah.</span>
+                </div>
+                <div class="step">
+                    <i class="fas fa-hand-holding-dollar"></i>
+                    <strong>3. Profit Sharing</strong><br>
+                    <span style="color: var(--text-muted);">Sistem dipasarkan & anda terima royalti berterusan.</span>
+                </div>
             </div>
 
-            <form class="ai-form" onsubmit="generateAIPrompt(event)">
-                <div class="input-group">
-                    <label for="bizName">Nama Bisnes / Jenama</label>
-                    <input type="text" id="bizName" placeholder="Contoh: Kopi Malaya HQ" required>
-                </div>
-                
-                <div class="input-group">
-                    <label for="bizNiche">Industri / Niche Bisnes</label>
-                    <select id="bizNiche" required>
-                        <option value="" disabled selected>Pilih Industri Anda</option>
-                        <option value="F&B / Makanan">F&B / Makanan</option>
-                        <option value="Kesihatan & Kecantikan">Kesihatan & Kecantikan</option>
-                        <option value="Servis & Perkhidmatan">Servis & Perkhidmatan</option>
-                        <option value="Fesyen & Pakaian">Fesyen & Pakaian</option>
-                        <option value="Lain-lain">Lain-lain</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label for="bizFeature">Ciri Istimewa Diperlukan</label>
-                    <input type="text" id="bizFeature" placeholder="Contoh: Borang tempahan, Galeri gambar..." required>
-                </div>
-
-                <div class="input-group">
-                    <label for="bizDesc">Terangkan Bisnes Anda Secara Ringkas</label>
-                    <textarea id="bizDesc" placeholder="Kami menjual produk X kepada pelanggan Y untuk menyelesaikan masalah Z..." required></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 10px;">
-                    <i class="fab fa-whatsapp"></i> Hantar Ke WhatsApp KETICK
-                </button>
-            </form>
+            <a href="ideanest.html" class="btn btn-main">Sertai IdeaNest Sekarang</a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 KETICK Solutions. Pembangun Sistem Digital Tempatan.</p>
+        <p>&copy; 2026 KETICK Solutions. Dibangunkan dengan inovasi oleh anak tempatan.</p>
     </footer>
 
     <a href="https://wa.me/601123266755" class="wa-float" target="_blank">
@@ -330,26 +321,6 @@
         }
         window.addEventListener("scroll", reveal);
         reveal();
-
-        // Convert Form to AI Prompt & Send to WhatsApp
-        function generateAIPrompt(e) {
-            e.preventDefault(); // Elak page refresh
-            
-            // Ambil data dari form
-            const name = document.getElementById('bizName').value;
-            const niche = document.getElementById('bizNiche').value;
-            const feature = document.getElementById('bizFeature').value;
-            const desc = document.getElementById('bizDesc').value;
-
-            // Strukturkan menjadi AI Prompt untuk rujukan anda
-            const textToSend = `*TEMPAHAN WEBSITE RM99 (KETICK)*\n\nHai, ini maklumat untuk binaan website saya:\n\n*1. Nama Bisnes:* ${name}\n*2. Industri:* ${niche}\n*3. Ciri Istimewa:* ${feature}\n*4. Penerangan Bisnes:* ${desc}\n\n_Sila jadikan maklumat di atas sebagai prompt AI anda untuk merangka website saya. Terima kasih!_`;
-
-            // Encode URL dan buka WhatsApp
-            const encodedText = encodeURIComponent(textToSend);
-            const whatsappURL = `https://wa.me/601123266755?text=${encodedText}`;
-            
-            window.open(whatsappURL, '_blank');
-        }
     </script>
 </body>
 </html>
