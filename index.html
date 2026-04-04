@@ -458,6 +458,12 @@
     </a>
 
     <script>
+        // CLEAN URL: Buang 'index.html' dari bar alamat sebaik sahaja page dimuatkan
+        if (window.location.pathname.endsWith('/index.html')) {
+            var newPath = window.location.pathname.replace('/index.html', '/');
+            window.history.replaceState({}, '', newPath);
+        }
+
         // 1. LIVE SALES EFFECT
         let salesAmount = 14230;
         setInterval(() => {
@@ -510,10 +516,10 @@
 
         function loadCustomVideo() {
             var url = document.getElementById('yt-url').value;
-            var regExp = /[?&]list=([^#&?]+)/;
-            var match = url.match(regExp);
-            if (match) {
-                player.loadPlaylist({ list: match[1], listType: 'playlist' });
+            var playlistId = extractPlaylistID(url);
+            var videoId = extractVideoID(url);
+            if (playlistId) {
+                player.loadPlaylist({ list: playlistId, listType: 'playlist' });
                 document.getElementById('song-title').innerText = "Playlist Pilihan Anda 🎧";
             } else {
                 var vidMatch = url.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([^#&?]+)/);
@@ -538,7 +544,7 @@
             return (match && match[1]) ? match[1] : null;
         }
 
-        // 3. TRIGGER API LOADER (PENTING!)
+        // 3. TRIGGER API LOADER
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
