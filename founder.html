@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KETICK untuk Founder | Bina Empayar Digital Anda</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #03040b;
+            --bg-card: #0c0f1d;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --neon-cyan: #00e5ff;
+            --neon-blue: #2970ff;
+            --neon-gold: #fbbf24; /* Sedikit sentuhan emas untuk vibe eksklusif */
+            --text-muted: #8b92a5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glow Blue/Cyan */
+        .glow {
+            position: fixed; width: 600px; height: 600px; background: rgba(41, 112, 255, 0.1);
+            filter: blur(120px); border-radius: 50%; z-index: -1; top: -100px; right: -100px;
+        }
+
+        nav {
+            padding: 25px 8%; border-bottom: 1px solid var(--border-color);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: #fff; }
+        .logo span { color: var(--neon-cyan); }
+
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;}
+
+        /* Left Side: Info */
+        .info-side h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1px; }
+        .info-side h1 span { background: linear-gradient(to right, var(--neon-cyan), var(--neon-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .info-side p { color: var(--text-muted); font-size: 1.15rem; margin-bottom: 40px; max-width: 500px;}
+
+        .feature-grid { display: grid; gap: 25px; margin-bottom: 40px; }
+        .feature-item { display: flex; gap: 20px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 16px; border: 1px solid var(--border-color); transition: 0.3s;}
+        .feature-item:hover { border-color: rgba(0, 229, 255, 0.3); transform: translateX(5px); }
+        .feature-icon { width: 50px; height: 50px; background: rgba(0, 229, 255, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--neon-cyan); flex-shrink: 0;}
+        .feature-content h4 { font-size: 1.1rem; margin-bottom: 5px; }
+        .feature-content p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+
+        /* Right Side: Form Card */
+        .form-card {
+            background: var(--bg-card); padding: 50px 40px; border-radius: 24px; border: 1px solid var(--border-color);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5); position: relative;
+        }
+        .form-card::before {
+            content: ''; position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+            width: 150px; height: 2px; background: var(--neon-cyan); box-shadow: 0 0 20px var(--neon-cyan);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--neon-cyan); margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase;}
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 15px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color);
+            border-radius: 10px; color: #fff; font-family: inherit; transition: 0.3s; font-size: 0.95rem;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--neon-cyan); background: rgba(255,255,255,0.05); }
+
+        .btn-submit {
+            width: 100%; padding: 18px; background: linear-gradient(135deg, var(--neon-blue), var(--neon-cyan));
+            border: none; border-radius: 10px; color: #fff; font-weight: 800; font-size: 1.1rem; cursor: pointer;
+            transition: 0.3s; margin-top: 15px; display: flex; justify-content: center; align-items: center; gap: 10px;
+        }
+        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 229, 255, 0.4); }
+
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; margin: 30px auto; }
+            .info-side h1 { font-size: 2.5rem; }
+            .form-card { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow"></div>
+
+    <nav>
+        <a href="/" class="logo">KE<span>TICK</span> Enterprise</a>
+        <a href="/" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">← Kembali</a>
+    </nav>
+
+    <div class="container">
+        <div class="info-side">
+            <div style="display: inline-block; padding: 6px 15px; background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.3); border-radius: 20px; color: var(--neon-gold); font-size: 0.75rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 20px; text-transform: uppercase;">
+                Eksklusif Untuk Founder & CEO
+            </div>
+            <h1>Skalakan Bisnes Anda ke <span>Tahap Seterusnya</span></h1>
+            <p>Berhenti membuang masa dengan aliran kerja manual. Pasukan teknikal KETICK bersedia menjadi "Tech Partner" anda untuk membina automasi operasi yang kebal dan efisien.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-network-wired"></i></div>
+                    <div class="feature-content">
+                        <h4>Sistem ERP Tersuai (Custom)</h4>
+                        <p>Gabungkan HR, Kewangan, dan Operasi dalam satu dashboard yang direka khusus untuk cara bisnes anda bekerja.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-users-cog"></i></div>
+                    <div class="feature-content">
+                        <h4>Pasukan IT Dedikasi</h4>
+                        <p>Jimat ratusan ribu ringgit. Tak perlu upah in-house developer, biarkan pakar kami uruskan infrastruktur kod anda.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="feature-content">
+                        <h4>Automasi & Skalabiliti</h4>
+                        <p>Sistem yang dibina untuk menampung pertumbuhan dari 10 staf kepada 1,000 staf tanpa 'server crash'.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-card">
+            <h3 style="margin-bottom: 5px; font-size: 1.8rem; font-weight: 800;">Jadualkan Konsultasi Eksekutif</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px;">Isi butiran di bawah untuk sesi *discovery call* secara langsung bersama Ketua Pembangun KETICK.</p>
+            
+            <form id="founderForm">
+                <div class="form-group">
+                    <label>NAMA PENUH / JAWATAN</label>
+                    <input type="text" id="name" placeholder="Cth: Ahmad Ali (CEO)" required>
+                </div>
+                <div class="form-group">
+                    <label>NAMA SYARIKAT</label>
+                    <input type="text" id="company" placeholder="Cth: KETICK Solutions Sdn Bhd" required>
+                </div>
+                <div class="form-group">
+                    <label>ANGGARAN SAIZ PASUKAN SEKARANG</label>
+                    <select id="teamSize" required>
+                        <option value="1-5 Orang">1 - 5 Orang (Startup)</option>
+                        <option value="6-20 Orang">6 - 20 Orang (SME)</option>
+                        <option value="21-50 Orang">21 - 50 Orang (Skala Sederhana)</option>
+                        <option value="50+ Orang">Lebih 50 Orang (Korporat)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>APAKAH CABARAN TEKNIKAL UTAMA SYARIKAT?</label>
+                    <textarea id="challenge" rows="4" placeholder="Cth: Staf susah nak track inventory, sistem sedia ada asyik lag, atau nak buat sistem ejen berpusat..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    Hantar Permohonan Konsultasi <i class="fas fa-arrow-right"></i>
+                </button>
+                <p style="text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 15px;">
+                    <i class="fas fa-lock"></i> Segala maklumat syarikat anda dirahsiakan.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // --- CLEAN URL LOGIC ---
+        if (window.location.pathname.endsWith('.html')) {
+            var cleanPath = window.location.pathname.replace('.html', '');
+            window.history.replaceState({}, '', cleanPath);
+        }
+
+        // --- WHATSAPP LOGIC ---
+        document.getElementById('founderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const company = document.getElementById('company').value;
+            const teamSize = document.getElementById('teamSize').value;
+            const challenge = document.getElementById('challenge').value;
+
+            const prompt = `*PERMOHONAN KONSULTASI ENTERPRISE (FOUNDER)*\n\n` +
+                           `👤 *Nama/Jawatan:* ${name}\n` +
+                           `🏢 *Syarikat:* ${company}\n` +
+                           `👥 *Saiz Pasukan:* ${teamSize}\n\n` +
+                           `⚠️ *Cabaran Utama Syarikat:*\n${challenge}\n\n` +
+                           `_Dihantar melalui ketick.my/founder_`;
+
+            const encodedPrompt = encodeURIComponent(prompt);
+            const whatsappURL = `https://wa.me/601123266755?text=${encodedPrompt}`;
+
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+</body>
+</html>
