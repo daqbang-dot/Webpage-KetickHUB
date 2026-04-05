@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit SEO Percuma | KETICK Solutions</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #03040b;
+            --bg-card: #0c0f1d;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --neon-cyan: #00e5ff;
+            --neon-blue: #2970ff;
+            --neon-red: #ff4b4b;
+            --text-muted: #8b92a5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav { padding: 20px 8%; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: #fff; }
+        .logo span { color: var(--neon-cyan); }
+
+        .container { max-width: 600px; margin: 40px auto; padding: 0 20px; text-align: center; }
+
+        /* INPUT STYLE */
+        .url-input-wrapper { background: var(--bg-card); padding: 10px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; gap: 10px; margin-bottom: 30px; }
+        .url-input { flex: 1; background: transparent; border: none; color: #fff; padding: 10px; font-family: inherit; font-size: 1rem; outline: none; }
+        .btn-audit { background: var(--neon-blue); color: #fff; border: none; padding: 12px 25px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .btn-audit:hover { background: var(--neon-cyan); color: #000; }
+
+        /* SCANNING ANIMATION */
+        #scanning-status { display: none; margin-top: 40px; }
+        .loader { width: 50px; height: 50px; border: 5px solid var(--bg-card); border-top: 5px solid var(--neon-cyan); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+        
+        /* RESULT SECTION (IKUT GAMBAR ANDA) */
+        #result-section { display: none; animation: fadeIn 0.5s ease; }
+        
+        .score-circle {
+            width: 120px; height: 120px; border: 8px solid var(--neon-red); border-radius: 50%;
+            margin: 0 auto 30px; display: flex; align-items: center; justify-content: center;
+            font-size: 3rem; font-weight: 800; color: var(--neon-red);
+            box-shadow: 0 0 20px rgba(255, 75, 75, 0.2);
+        }
+
+        .issue-card { background: var(--bg-card); border-radius: 16px; padding: 30px; text-align: left; margin-bottom: 20px; border: 1px solid var(--border-color); }
+        .issue-title { color: var(--neon-red); font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .issue-desc { font-size: 0.9rem; color: #ccc; margin-bottom: 20px; }
+        
+        .bullet-list { list-style: none; padding-left: 0; }
+        .bullet-list li { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .bullet-list li::before { content: '•'; color: var(--neon-cyan); font-weight: bold; }
+
+        .closing-text { font-style: italic; color: #eee; margin-top: 30px; padding: 20px; border-top: 1px solid var(--border-color); font-size: 0.9rem; }
+
+        .btn-wa-fix {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: #25d366; color: #fff; padding: 15px 30px; border-radius: 12px;
+            text-decoration: none; font-weight: 800; margin-top: 20px; width: 100%; justify-content: center;
+        }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo">KE<span>TICK</span> Audit</a>
+        <a href="/" style="color:var(--text-muted); text-decoration:none; font-size:0.9rem;">← Utama</a>
+    </nav>
+
+    <div class="container">
+        <h1>Audit SEO Website Anda</h1>
+        <p style="color: var(--text-muted); margin-bottom: 30px;">Ketahui mengapa website anda gagal mendapat pelanggan dari Google.</p>
+
+        <div class="url-input-wrapper">
+            <input type="text" id="targetUrl" class="url-input" placeholder="Masukkan URL: https://example.com">
+            <button class="btn-audit" onclick="startAudit()">Audit Sekarang</button>
+        </div>
+
+        <div id="scanning-status">
+            <div class="loader"></div>
+            <p id="scan-text">Menganalisa Meta Tags...</p>
+        </div>
+
+        <div id="result-section">
+            <div class="score-circle">56</div>
+
+            <div class="issue-card">
+                <div class="issue-title"><i class="fas fa-exclamation-triangle"></i> ISU: Tajuk & Deskripsi SEO Lemah</div>
+                <p class="issue-desc">Ini menjejaskan "First Impression" di Google. Tanpa optimasi, bakal pelanggan takkan klik walaupun website muncul di carian.</p>
+                <ul class="bullet-list">
+                    <li><strong>Keyword Research:</strong> Target keyword "High Intent".</li>
+                    <li><strong>CTR Copywriting:</strong> Tajuk perlu menggoda & tepat.</li>
+                    <li><strong>Audit Snippet:</strong> Baiki paparan terpotong di mobile.</li>
+                </ul>
+                
+                <hr style="opacity: 0.1; margin: 25px 0;">
+
+                <div class="issue-title" style="color: #f59e0b;"><i class="fas fa-exclamation-circle"></i> ISU: Struktur Skor Rendah</div>
+                <p class="issue-desc">Google 'menghukum' ranking website yang mempunyai masalah teknikal.</p>
+                <ul class="bullet-list">
+                    <li><strong>Penyembuhan SSL:</strong> Aktifkan HTTPS segera.</li>
+                    <li><strong>Mobile-Friendly:</strong> Baiki layout berterabur di telefon.</li>
+                    <li><strong>Speed Boost:</strong> Optimasi imej & kod berat.</li>
+                </ul>
+
+                <div class="closing-text">
+                    "Damage" ini jika dibiarkan akan menyebabkan kos iklan anda makin mahal tapi jualan tetap rendah.
+                </div>
+            </div>
+
+            <a href="#" id="fixLink" class="btn-wa-fix" target="_blank">
+                <i class="fab fa-whatsapp"></i> Fix Website Saya Sekarang
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function startAudit() {
+            const url = document.getElementById('targetUrl').value;
+            if(!url) return alert("Sila masukkan URL!");
+
+            // Sembunyi input, tunjuk loader
+            document.querySelector('.url-input-wrapper').style.display = 'none';
+            document.getElementById('scanning-status').style.display = 'block';
+
+            // Animasi teks scanning
+            const texts = ["Menganalisa Meta Tags...", "Menilai Struktur Laman...", "Menyemak Kelajuan Mobile...", "Menjana Laporan Akhir..."];
+            let i = 0;
+            const interval = setInterval(() => {
+                document.getElementById('scan-text').innerText = texts[i];
+                i++;
+                if(i >= texts.length) {
+                    clearInterval(interval);
+                    showResult(url);
+                }
+            }, 800);
+        }
+
+        function showResult(url) {
+            document.getElementById('scanning-status').style.display = 'none';
+            document.getElementById('result-section').style.display = 'block';
+
+            // Set link WhatsApp khas dengan URL website klien
+            const waMsg = `Salam KETICK! Saya baru sahaja audit website saya (${url}) dan skor saya cuma 56/100. Boleh bantu saya fix masalah SEO dan Speed?`;
+            document.getElementById('fixLink').href = `https://wa.me/601123266755?text=${encodeURIComponent(waMsg)}`;
+        }
+
+        // Clean URL
+        if (window.location.pathname.endsWith('.html')) {
+            window.history.replaceState({}, '', window.location.pathname.replace('.html', ''));
+        }
+    </script>
+</body>
+</html>
