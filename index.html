@@ -40,6 +40,7 @@
             --neon-cyan: #00e5ff;
             --neon-blue: #2970ff;
             --neon-purple: #b14bf4;
+            --neon-red: #ff4b4b; /* Tambahan untuk Audit SEO */
             --glow-cyan: rgba(0, 229, 255, 0.4);
         }
 
@@ -77,7 +78,7 @@
         }
         .logo { font-size: 22px; font-weight: 800; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;}
         .logo i { color: var(--neon-cyan); }
-        nav ul { display: flex; list-style: none; gap: 35px; }
+        nav ul { display: flex; list-style: none; gap: 35px; align-items: center;}
         nav ul li a { text-decoration: none; color: var(--text-muted); font-weight: 500; font-size: 14px; transition: 0.3s; }
         nav ul li a:hover { color: var(--text-main); }
         .nav-btn { background: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 8px; color: #fff; font-size: 13px; font-weight: 600; text-decoration: none; border: 1px solid var(--border-color); transition: 0.3s;}
@@ -300,6 +301,11 @@
             <li><a href="#dashboard">Dashboard</a></li>
             <li><a href="#pricing">Harga</a></li>
             <li><a href="#ideanest">IdeaNest</a></li>
+            <li>
+                <a href="/audit" class="nav-link" style="color: var(--neon-red); font-weight: 800;">
+                   <i class="fas fa-search-dollar"></i> Audit SEO
+                </a>
+            </li>
         </ul>
         <a href="https://wa.me/601123266755" class="nav-btn" target="_blank">Hubungi Kami</a>
     </nav>
@@ -308,7 +314,25 @@
         <div class="eyebrow"><i class="fas fa-check-circle"></i> Pilihan #1 Usahawan Malaysia</div>
         <h1>Urus Bisnes Anda Dengan<br><span>Automasi Pintar KETICK</span></h1>
         <p>Dari membina sistem jualan berprestasi tinggi hingga menukar idea perisian anda menjadi realiti. Antaramuka moden yang dibina 100% khas untuk kelajuan.</p>
-        <a href="#pricing" class="btn-primary">Mula Projek Anda Sekarang</a>
+        
+        <div class="hero-btns" style="margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <a href="#pricing" class="btn-primary">Mula Projek Anda Sekarang</a>
+            <a href="/audit" class="btn-audit-trigger" style="
+                background: rgba(255, 75, 75, 0.1);
+                border: 1px solid var(--neon-red);
+                color: var(--neon-red);
+                padding: 15px 30px;
+                border-radius: 12px;
+                text-decoration: none;
+                font-weight: 800;
+                transition: 0.3s;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+            ">
+                <i class="fas fa-chart-line"></i> Audit Website Percuma
+            </a>
+        </div>
 
         <div class="dashboard-showcase">
             <div class="dashboard-glow"></div>
@@ -399,7 +423,7 @@
                 <h2>Realisasikan Idea dengan <span style="color: var(--neon-purple);">IdeaNest</span></h2>
                 <p>Ada idea sistem hebat tapi tiada kemahiran coding? Daftarkan idea anda. Kami bina 100%, kami pasarkan, dan anda jana pendapatan pasif berterusan.</p>
             </div>
-            <a href="ideanest.html" class="btn-secondary">Sertai Program Ini</a>
+            <a href="/ideanest" class="btn-secondary">Sertai Program Ini</a>
         </div>
     </section>
 
@@ -454,7 +478,7 @@
                     <li><i class="fas fa-check"></i> Pengurusan Stok Lanjutan</li>
                     <li><i class="fas fa-check"></i> Laporan Untung Rugi</li>
                 </ul>
-                <a href="promosi-pos.html" class="price-btn">Beli Sekarang</a>
+                <a href="/promosi-pos" class="price-btn">Beli Sekarang</a>
             </div>
 
             <div class="price-card popular">
@@ -465,9 +489,10 @@
                 <ul class="feature-list" style="color: #fff;">
                     <li><i class="fas fa-check"></i> Percuma Domain & Hosting (1 Tahun)</li>
                     <li><i class="fas fa-check"></i> Integrasi Chat WhatsApp</li>
+                    <li><i class="fas fa-check"></i> Reka Bentuk Premium (UI/UX)</li>
                     <li><i class="fas fa-check"></i> Pengoptimuman Enjin Carian (SEO)</li>
                 </ul>
-                <a href="bina-website.html" class="price-btn">Dapatkan Kuota</a>
+                <a href="/bina-website" class="price-btn">Dapatkan Kuota</a>
             </div>
 
             <div class="price-card">
@@ -478,7 +503,7 @@
                     <li><i class="fas fa-check"></i> Papan Pemuka Khusus</li>
                     <li><i class="fas fa-check"></i> Had Pengguna Tanpa Had</li>
                 </ul>
-                <a href="promosi-erp.html" class="price-btn">Bincang Projek</a>
+                <a href="/promosi-erp" class="price-btn">Bincang Projek</a>
             </div>
         </div>
     </section>
@@ -490,11 +515,11 @@
         <p>Sama ada anda seorang Founder yang ingin mendigitalkan visi, atau pembangun berbakat yang ingin membina masa depan perisian Malaysia.</p>
         
         <div class="cta-actions">
-            <a <a href="/founder" class="btn-founder">
+            <a href="/founder" class="btn-founder">
                 <i class="fas fa-rocket"></i> SEBAGAI FOUNDER
             </a>
             
-            <a <a href="/kerjaya" class="btn-team">
+            <a href="/kerjaya" class="btn-team">
                 <i class="fas fa-code-branch"></i> SERTAI TEAM KAMI
             </a>
         </div>
@@ -503,6 +528,16 @@
     <footer>
         <div><strong>KETICK</strong> Solutions</div>
         <div style="font-size: 0.7rem; opacity: 0.3; max-width: 400px; text-align: center;">Penyedia solusi perisian, sistem POS, ERP, dan bina website murah di Malaysia. Berkhidmat untuk semua usahawan mikro dan PKS.</div>
+        
+        <div style="margin-top: 40px; padding: 20px; border: 1px dashed rgba(255, 75, 75, 0.3); border-radius: 15px; text-align: center;">
+            <p style="font-size: 0.9rem; color: #ccc; margin-bottom: 15px;">
+                Adakah website anda "sakit" dan menyebabkan kerugian?
+            </p>
+            <a href="/audit" style="color: var(--neon-red); text-decoration: none; font-weight: 800; font-size: 1.1rem;">
+                KLIK SINI: Jalankan SEO Audit Sekarang →
+            </a>
+        </div>
+        
         <div>&copy; 2026 Hak Cipta Terpelihara. Dibina di Malaysia.</div>
     </footer>
 
@@ -511,7 +546,7 @@
     </a>
 
     <script>
-        // CLEAN URL: Buang 'index.html' dari bar alamat sebaik sahaja page dimuatkan
+        // CLEAN URL
         if (window.location.pathname.endsWith('/index.html')) {
             var newPath = window.location.pathname.replace('/index.html', '/');
             window.history.replaceState({}, '', newPath);
@@ -525,32 +560,20 @@
             if(el) el.innerText = "RM " + salesAmount.toLocaleString('en-US');
         }, 3000);
 
-        // 2. YOUTUBE API LOGIC (RE-INITIALIZED FOR PLAYLIST)
+        // 2. YOUTUBE API LOGIC
         var player;
-        
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('youtube-player', {
-                height: '200',
-                width: '200',
+                height: '200', width: '200',
                 playerVars: { 
-                    'autoplay': 0,
-                    'playsinline': 1, 
-                    'controls': 0, 
-                    'listType': 'playlist', 
-                    'list': 'PLGWbba0pzgZwoaCJp_zTl_4VyjVeuwgYc', // PLAYLIST ID KETICK ANDA
+                    'autoplay': 0, 'playsinline': 1, 'controls': 0, 
+                    'listType': 'playlist', 'list': 'PLGWbba0pzgZwoaCJp_zTl_4VyjVeuwgYc', 
                     'origin': window.location.origin
                 },
-                events: { 
-                    'onReady': onPlayerReady, 
-                    'onStateChange': onPlayerStateChange 
-                }
+                events: { 'onReady': onPlayerReady, 'onStateChange': onPlayerStateChange }
             });
         }
-
-        function onPlayerReady(event) {
-            document.getElementById('song-title').innerText = "KETICK Official Station 🎧";
-        }
-
+        function onPlayerReady(event) { document.getElementById('song-title').innerText = "KETICK Official Station 🎧"; }
         function onPlayerStateChange(event) {
             let disc = document.getElementById('kplay-disc');
             if (event.data == YT.PlayerState.PLAYING) {
@@ -563,41 +586,19 @@
                 disc.style.animationPlayState = 'paused';
             }
         }
-
         function playVideo() { player.playVideo(); }
         function pauseVideo() { player.pauseVideo(); }
-
         function loadCustomVideo() {
             var url = document.getElementById('yt-url').value;
-            var playlistId = extractPlaylistID(url);
-            var videoId = extractVideoID(url);
-            if (playlistId) {
-                player.loadPlaylist({ list: playlistId, listType: 'playlist' });
-                document.getElementById('song-title').innerText = "Playlist Pilihan Anda 🎧";
-            } else {
+            var regExp = /[?&]list=([^#&?]+)/;
+            var match = url.match(regExp);
+            if (match) { player.loadPlaylist({ list: match[1], listType: 'playlist' }); } 
+            else {
                 var vidMatch = url.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([^#&?]+)/);
-                if (vidMatch) {
-                    player.loadVideoById(vidMatch[1]);
-                    document.getElementById('song-title').innerText = "Lagu Pilihan Anda 🎧";
-                } else {
-                    alert("Link tidak sah!");
-                }
+                if (vidMatch) { player.loadVideoById(vidMatch[1]); }
             }
         }
 
-        function extractVideoID(url) {
-            var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-            var match = url.match(regExp);
-            return (match && match[2].length == 11) ? match[2] : null;
-        }
-
-        function extractPlaylistID(url) {
-            var regExp = /[?&]list=([^#\&\?]+)/;
-            var match = url.match(regExp);
-            return (match && match[1]) ? match[1] : null;
-        }
-
-        // 3. TRIGGER API LOADER
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
