@@ -7,6 +7,8 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <style>
         :root {
@@ -82,6 +84,7 @@
             width: 100%; padding: 18px; background: linear-gradient(135deg, var(--neon-purple), #6366f1);
             border: none; border-radius: 12px; color: #fff; font-weight: 800; font-size: 1rem; cursor: pointer;
             transition: 0.3s; text-transform: uppercase; letter-spacing: 1px;
+            display: flex; justify-content: center; align-items: center; gap: 10px;
         }
         .btn-pitch:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(177, 75, 244, 0.3); }
 
@@ -116,15 +119,15 @@
                 <div class="step">
                     <div class="step-num">2</div>
                     <div class="step-content">
-                        <h4>Penilaian & Kontrak</h4>
-                        <p>Jika idea berpotensi, kita tandatangani perjanjian Profit Sharing.</p>
+                        <h4>Penilaian & Perjanjian Sulit (NDA)</h4>
+                        <p>Sebaik sahaja borang dihantar, satu draf NDA automatik akan dijana untuk melindungi idea anda secara sah.</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-num">3</div>
                     <div class="step-content">
                         <h4>Mula Coding (KETICK)</h4>
-                        <p>Kami bangunkan sistem 100% menggunakan teknologi terkini.</p>
+                        <p>Kami bangunkan sistem 100% menggunakan teknologi terkini sekiranya idea diluluskan.</p>
                     </div>
                 </div>
                 <div class="step">
@@ -140,6 +143,11 @@
         <div class="pitch-card">
             <h3 style="margin-bottom: 30px; font-weight: 800;">Pitch Borang Inovasi</h3>
             <form id="pitchForm">
+                <div class="form-group">
+                    <label>NAMA ANDA</label>
+                    <input type="text" id="founderName" placeholder="Nama Penuh Anda (Untuk Dokumen NDA)" required>
+                </div>
+
                 <div class="form-group">
                     <label>NAMA IDEA / PROJEK</label>
                     <input type="text" id="ideaName" placeholder="Contoh: Sistem E-Wallet Kantin" required>
@@ -160,9 +168,11 @@
                     <textarea id="monetize" rows="3" placeholder="Contoh: Langganan bulanan / Komisen jualan..."></textarea>
                 </div>
 
-                <button type="submit" class="btn-pitch">Hantar Idea ke IdeaNest</button>
+                <button type="submit" class="btn-pitch">
+                    <i class="fas fa-paper-plane"></i> Hantar Idea & Jana NDA (Auto)
+                </button>
                 <p style="text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 20px;">
-                    <i class="fas fa-user-shield"></i> Idea anda dilindungi di bawah polisi privasi KETICK.
+                    <i class="fas fa-shield-alt"></i> Salinan PDF "Non-Disclosure Agreement" akan dimuat turun automatik.
                 </p>
             </form>
         </div>
@@ -186,8 +196,8 @@
             <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 35px; position: relative; overflow: hidden;">
                 <div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: rgba(177, 75, 244, 0.1); filter: blur(40px);"></div>
                 <i class="fas fa-file-signature" style="font-size: 2rem; color: var(--neon-purple); margin-bottom: 20px;"></i>
-                <h3 style="font-size: 1.2rem; margin-bottom: 10px;">2. Perjanjian Kerahsiaan (NDA)</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Idea anda adalah hak milik anda. Sebelum kami meminta kertas kerja penuh atau butiran lanjut, dokumen Perjanjian Kerahsiaan (NDA) rasmi akan ditandatangani.</p>
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px;">2. Penjanaan Automatik (NDA)</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Sistem KETICK akan menjana satu dokumen PDF Non-Disclosure Agreement (NDA) serta-merta sejurus anda menekan butang hantar sebagai bukti penerimaan idea awal yang terikat secara sah.</p>
             </div>
 
             <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 35px; position: relative; overflow: hidden; border-bottom: 3px solid var(--neon-purple);">
@@ -207,16 +217,95 @@
             window.history.replaceState({}, '', cleanPath);
         }
 
-        // --- 2. WHATSAPP PITCH LOGIC ---
-        document.getElementById('pitchForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // --- 2. FUNGSI GENERATE PDF NDA MENGGUNAKAN JSPDF ---
+        function generatePDF(founderName, ideaName) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
             
+            // Format Tarikh Hari Ini
+            const today = new Date();
+            const dateString = today.toLocaleDateString('ms-MY', { day: 'numeric', month: 'long', year: 'numeric' });
+
+            // Tetapan Font dan Styling PDF
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(16);
+            doc.text("NON-DISCLOSURE AGREEMENT (NDA) / PERJANJIAN KERAHSIAAN", 105, 20, null, null, "center");
+            
+            doc.setFontSize(10);
+            doc.setFont("helvetica", "normal");
+            doc.text(`Tarikh Pengesahan: ${dateString}`, 20, 35);
+            doc.text(`Platform Pendaftaran: KETICK IdeaNest (ketick.my/ideanest)`, 20, 42);
+
+            doc.setFont("helvetica", "bold");
+            doc.text("1. PIHAK-PIHAK TERLIBAT", 20, 55);
+            
+            doc.setFont("helvetica", "normal");
+            doc.text("Perjanjian Kerahsiaan (NDA) ini dimeterai antara:", 20, 62);
+            doc.text(`PIHAK A (Penerima): KETICK Solutions (Pembangun Sistem Digital)`, 25, 70);
+            doc.text(`PIHAK B (Pendedah): ${founderName.toUpperCase()} (Pemilik Idea/Projek)`, 25, 77);
+
+            doc.setFont("helvetica", "bold");
+            doc.text("2. DEFINISI MAKLUMAT SULIT", 20, 90);
+            
+            doc.setFont("helvetica", "normal");
+            const textConfidential = `Bagi tujuan perjanjian ini, "Maklumat Sulit" merujuk kepada konsep, struktur asas, sasaran pasaran, dan logik modul bagi idea sistem/perisian yang dinamakan sebagai "${ideaName.toUpperCase()}" yang dikongsikan oleh Pihak B kepada Pihak A melalui platform IdeaNest.`;
+            const splitConfidential = doc.splitTextToSize(textConfidential, 170);
+            doc.text(splitConfidential, 20, 97);
+
+            doc.setFont("helvetica", "bold");
+            doc.text("3. KEWAJIPAN PIHAK A (KETICK)", 20, 120);
+            
+            doc.setFont("helvetica", "normal");
+            const textObligation = "Pihak A (KETICK) bersetuju untuk:\ni. Menggunakan Maklumat Sulit secara eksklusif untuk tujuan penilaian kebolehlaksanaan teknikal dan potensi pasaran sahaja.\nii. Tidak akan mendedahkan, membocorkan, atau menjual idea tersebut kepada pihak ketiga (pesaing) tanpa persetujuan bertulis dari Pihak B.\niii. Tidak akan membangunkan sistem yang serupa dengan konsep unik Pihak B untuk kepentingan peribadi secara bersendirian (kecuali melalui perjanjian Profit Sharing yang akan dimeterai kelak jika idea diluluskan).";
+            const splitObligation = doc.splitTextToSize(textObligation, 170);
+            doc.text(splitObligation, 20, 127);
+
+            doc.setFont("helvetica", "bold");
+            doc.text("4. PENGECUALIAN", 20, 165);
+            
+            doc.setFont("helvetica", "normal");
+            const textException = "Pihak A tidak terikat di bawah perjanjian ini sekiranya Maklumat Sulit tersebut:\ni. Telah menjadi pengetahuan umum di ruang awam sebelum ia didedahkan oleh Pihak B.\nii. Telah pun dibangunkan secara bebas oleh Pihak A sebelum pendedahan ini dibuat.\niii. Diarahkan untuk didedahkan oleh undang-undang kerajaan Malaysia.";
+            const splitException = doc.splitTextToSize(textException, 170);
+            doc.text(splitException, 20, 172);
+
+            doc.setFont("helvetica", "bold");
+            doc.text("5. PENGESAHAN DOKUMEN DIGITAL", 20, 205);
+            
+            doc.setFont("helvetica", "normal");
+            const textValidation = "Dokumen ini dijana secara automatik oleh pangkalan data KETICK IdeaNest sebagai jaminan keselamatan awal untuk Pihak B (Pemilik Idea). Ia adalah sah dari sudut terma asas pendedahan idea korporat.";
+            const splitValidation = doc.splitTextToSize(textValidation, 170);
+            doc.text(splitValidation, 20, 212);
+
+            // Garisan Tandatangan
+            doc.line(20, 240, 80, 240); // Line Pihak A
+            doc.text("Tandatangan Pengesahan Pihak A", 20, 245);
+            doc.text("(Auto-Generated by KETICK System)", 20, 250);
+
+            doc.line(110, 240, 180, 240); // Line Pihak B
+            doc.text(`Pengesahan Penghantar (Pihak B)`, 110, 245);
+            doc.text(founderName.toUpperCase(), 110, 250);
+
+            // Muat Turun PDF (Guna nama idea sebagai nama fail supaya nampak personalized)
+            const safeIdeaName = ideaName.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+            doc.save(`NDA_KETICK_${safeIdeaName}.pdf`);
+        }
+
+        // --- 3. WHATSAPP PITCH LOGIC + GENERATE PDF ---
+        document.getElementById('pitchForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Halang form dari refresh page
+            
+            const founderName = document.getElementById('founderName').value;
             const name = document.getElementById('ideaName').value;
             const problem = document.getElementById('problem').value;
             const target = document.getElementById('target').value;
             const monetize = document.getElementById('monetize').value;
 
+            // 1. GENERATE DAN DOWNLOAD PDF SECARA AUTOMATIK UNTUK PENGGUNA
+            generatePDF(founderName, name);
+
+            // 2. HANTAR PROMPT KE WHATSAPP UNTUK KETICK
             const prompt = `*IDEANEST™ PITCH SUBMISSION*\n\n` +
+                           `👤 *Nama:* ${founderName}\n` +
                            `🚀 *Idea:* ${name}\n` +
                            `⚠️ *Masalah:* ${problem}\n` +
                            `👥 *Sasaran:* ${target}\n` +
@@ -226,7 +315,10 @@
             const encodedPrompt = encodeURIComponent(prompt);
             const whatsappURL = `https://wa.me/601123266755?text=${encodedPrompt}`;
 
-            window.open(whatsappURL, '_blank');
+            // Tunggu sedikit masa (1 saat) supaya pengguna perasan PDF tengah download sebelum tab WhatsApp terbuka
+            setTimeout(() => {
+                window.open(whatsappURL, '_blank');
+            }, 1000);
         });
     </script>
 </body>
