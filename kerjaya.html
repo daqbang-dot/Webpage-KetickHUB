@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sertai Team KETICK | Kerjaya & Kolaborasi</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #03040b;
+            --bg-card: #0c0f1d;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --neon-cyan: #00e5ff;
+            --neon-blue: #2970ff;
+            --neon-purple: #b14bf4;
+            --text-muted: #8b92a5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glow */
+        .glow-left { position: fixed; width: 500px; height: 500px; background: rgba(0, 229, 255, 0.1); filter: blur(120px); border-radius: 50%; z-index: -1; top: 10%; left: -10%; }
+        .glow-right { position: fixed; width: 500px; height: 500px; background: rgba(177, 75, 244, 0.1); filter: blur(120px); border-radius: 50%; z-index: -1; bottom: 10%; right: -10%; }
+
+        nav {
+            padding: 25px 8%; border-bottom: 1px solid var(--border-color);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: #fff; }
+        .logo span { color: var(--neon-cyan); }
+        .nav-back { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .nav-back:hover { color: #fff; }
+
+        .container { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+
+        /* Header */
+        .career-header { text-align: center; margin-bottom: 60px; }
+        .badge-dev { display: inline-block; padding: 6px 16px; background: rgba(177, 75, 244, 0.1); border: 1px solid rgba(177, 75, 244, 0.3); border-radius: 20px; color: var(--neon-purple); font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+        .career-header h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; letter-spacing: -1px; }
+        .career-header h1 span { background: linear-gradient(to right, var(--neon-cyan), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .career-header p { color: var(--text-muted); font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
+
+        /* Culture Grid */
+        .culture-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 80px; }
+        .culture-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px; text-align: center; transition: 0.3s; }
+        .culture-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.04); border-color: rgba(0, 229, 255, 0.3); }
+        .culture-card i { font-size: 2rem; color: var(--neon-cyan); margin-bottom: 20px; }
+        .culture-card h4 { font-size: 1.1rem; margin-bottom: 10px; }
+        .culture-card p { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* Tech Stack Section */
+        .tech-stack { text-align: center; margin-bottom: 80px; padding: 40px; background: var(--bg-card); border-radius: 24px; border: 1px solid var(--border-color); }
+        .tech-stack h3 { font-size: 1.5rem; margin-bottom: 20px; }
+        .tech-icons { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; font-size: 2.5rem; color: var(--text-muted); }
+        .tech-icons i { transition: 0.3s; }
+        .tech-icons i:hover { color: #fff; transform: scale(1.1); }
+
+        /* Roles & Apply CTA */
+        .roles-section { background: linear-gradient(135deg, #070913, #0a0d24); border: 1px solid var(--border-color); border-radius: 24px; padding: 60px 40px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .roles-section h3 { font-size: 2rem; margin-bottom: 15px; }
+        .roles-section p { color: var(--text-muted); margin-bottom: 30px; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        .role-tags { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
+        .role-tag { padding: 8px 20px; background: rgba(0, 229, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.2); border-radius: 8px; font-size: 0.9rem; font-weight: 600; color: var(--neon-cyan); }
+        
+        .btn-apply {
+            display: inline-flex; align-items: center; gap: 12px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            color: #fff; padding: 18px 40px; border-radius: 12px; font-size: 1.1rem; font-weight: 800;
+            text-decoration: none; transition: 0.3s; border: none;
+            box-shadow: 0 10px 25px rgba(177, 75, 244, 0.3);
+        }
+        .btn-apply:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(177, 75, 244, 0.5); background: #fff; color: #000; }
+
+        @media (max-width: 900px) {
+            .career-header h1 { font-size: 2.5rem; }
+            .culture-grid { grid-template-columns: 1fr; }
+            .roles-section { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow-left"></div>
+    <div class="glow-right"></div>
+
+    <nav>
+        <a href="/" class="logo">KE<span>TICK</span> Skuad</a>
+        <a href="/" class="nav-back">← Kembali ke Utama</a>
+    </nav>
+
+    <div class="container">
+        <div class="career-header">
+            <div class="badge-dev">Pengambilan Terbuka 2026</div>
+            <h1>Bukan Sekadar Kerja.<br><span>Ini Revolusi Digital.</span></h1>
+            <p>Kami sedang mencari pakar teknikal, pemikir kreatif, dan perintis untuk bersama-sama membina ekosistem SaaS dan automasi perniagaan terbesar di Malaysia.</p>
+        </div>
+
+        <div class="culture-grid">
+            <div class="culture-card">
+                <i class="fas fa-laptop-code"></i>
+                <h4>Kerja Remote & Fleksibel</h4>
+                <p>Kami nilai hasil, bukan jam di pejabat. Bekerja dari mana-mana sahaja asalkan kod anda bersih dan berfungsi (Deploy & Chill).</p>
+            </div>
+            <div class="culture-card">
+                <i class="fas fa-rocket"></i>
+                <h4>Bina Produk Impak Tinggi</h4>
+                <p>Kod anda akan digunakan oleh ratusan usahawan untuk menjana jutaan ringgit jualan harian. Kepuasan kerja sebenar.</p>
+            </div>
+            <div class="culture-card">
+                <i class="fas fa-coins"></i>
+                <h4>Model Profit Sharing</h4>
+                <p>Sertai pembangunan projek "IdeaNest" dan nikmati perkongsian peratusan keuntungan (royalti) dari produk yang anda bina.</p>
+            </div>
+        </div>
+
+        <div class="tech-stack">
+            <h3 style="color: var(--neon-cyan);">Tech Stack KETICK</h3>
+            <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 0.9rem;">Teknologi terkini yang kami gunakan setiap hari.</p>
+            <div class="tech-icons">
+                <i class="fab fa-js" title="JavaScript"></i>
+                <i class="fab fa-node-js" title="Node.js"></i>
+                <i class="fab fa-react" title="React"></i>
+                <i class="fab fa-github" title="GitHub Actions"></i>
+                <i class="fas fa-database" title="Firebase / NoSQL"></i>
+            </div>
+        </div>
+
+        <div class="roles-section">
+            <h3>Kepakaran Yang Dicari</h3>
+            <p>Kami sentiasa membuka pintu untuk bakat-bakat baharu. Walaupun tiada kelulusan universiti, asalkan portfolio anda gempak, anda layak.</p>
+            
+            <div class="role-tags">
+                <div class="role-tag">Frontend Developer (UI/UX)</div>
+                <div class="role-tag">Backend Developer (Node.js)</div>
+                <div class="role-tag">Digital Marketer / Sales</div>
+            </div>
+
+            <a href="https://wa.me/601123266755?text=Salam+KETICK!+Saya+berminat+untuk+sertai+team.+Kepakaran+utama+saya+ialah+_______.+Berikut+adalah+link+portfolio/GitHub+saya:+" class="btn-apply" target="_blank">
+                <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> Hantar Profil / Portfolio
+            </a>
+            <p style="font-size: 0.8rem; margin-top: 20px; color: var(--text-muted);">Hantar mesej ringkas pengenalan diri anda dan pautan GitHub/Portfolio.</p>
+        </div>
+    </div>
+
+    <script>
+        // Clean URL Logic
+        if (window.location.pathname.endsWith('.html')) {
+            var cleanPath = window.location.pathname.replace('.html', '');
+            window.history.replaceState({}, '', cleanPath);
+        }
+    </script>
+</body>
+</html>
