@@ -3,239 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KETICK POS Mikro | Solusi Inventori & Jualan Smartphone</title>
-    
+    <title>Sistem POS KETICK | Urus Jualan Dari Telefon</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        :root {
-            --bg-dark: #03040b;
-            --bg-card: #0c0f1d;
-            --border-color: rgba(255, 255, 255, 0.08);
-            --neon-cyan: #00e5ff;
-            --neon-blue: #2970ff;
-            --neon-purple: #b14bf4;
-            --neon-gold: #fbbf24;
-            --neon-red: #ff4b4b;
-            --text-muted: #8b92a5;
-        }
-
+        :root { --bg-dark: #03040b; --bg-card: #0c0f1d; --neon-cyan: #00e5ff; --text-muted: #8b92a5; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-dark);
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-dark); color: #fff; line-height: 1.6; }
+        
+        /* MAINTENANCE BAR */
+        .maintenance-bar {
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+            color: #000; text-align: center; padding: 10px; font-weight: 800; font-size: 0.8rem;
+            letter-spacing: 2px; text-transform: uppercase; position: sticky; top: 0; z-index: 1100;
         }
 
-        .glow {
-            position: fixed; width: 400px; height: 400px; background: rgba(0, 229, 255, 0.1);
-            filter: blur(100px); border-radius: 50%; z-index: -1; top: 10%; right: -100px;
-        }
-
-        nav {
-            padding: 25px 8%; border-bottom: 1px solid var(--border-color);
-            display: flex; justify-content: space-between; align-items: center;
-        }
+        nav { padding: 20px 8%; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; }
         .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: #fff; }
         .logo span { color: var(--neon-cyan); }
 
-        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
-
-        /* HERO POS */
-        .hero-pos { text-align: center; margin-bottom: 80px; }
-        .hero-pos h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
-        .hero-pos h1 span { background: linear-gradient(to right, var(--neon-cyan), var(--neon-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-pos p { color: var(--text-muted); font-size: 1.2rem; max-width: 700px; margin: 0 auto 40px; }
-
-        /* BUTTONS */
-        .btn-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-        .btn-main {
-            padding: 18px 35px; border-radius: 12px; font-weight: 800; text-decoration: none; 
-            transition: 0.3s; font-size: 1rem; display: inline-flex; align-items: center; gap: 10px;
-            border: none; cursor: pointer;
-        }
-        .btn-demo { background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--border-color); }
-        .btn-demo:hover { background: #fff; color: #000; border-color: #fff; }
-        .btn-buy { background: var(--neon-gold); color: #000; box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3); }
-        .btn-buy:hover { transform: translateY(-5px); filter: brightness(1.1); box-shadow: 0 15px 30px rgba(251, 191, 36, 0.5); }
-
-        /* FEATURES GRID */
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 60px; }
-        .f-card { background: var(--bg-card); padding: 35px; border-radius: 20px; border: 1px solid var(--border-color); transition: 0.3s; }
-        .f-card:hover { border-color: var(--neon-cyan); transform: translateY(-5px); }
-        .f-card i { font-size: 2rem; color: var(--neon-cyan); margin-bottom: 20px; }
-        .f-card h3 { margin-bottom: 10px; font-size: 1.3rem; }
-        .f-card p { color: var(--text-muted); font-size: 0.95rem; }
-
-        /* 4-TIER PRICING SECTION */
-        .pricing-section { margin-top: 100px; }
-        .pricing-header { text-align: center; margin-bottom: 50px; }
-        .pricing-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
-        .pricing-header p { color: var(--text-muted); }
-
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-        
-        .p-card { background: var(--bg-card); border-radius: 20px; padding: 30px; border: 1px solid var(--border-color); position: relative; display: flex; flex-direction: column; }
-        
-        /* Tema Warna Kad */
-        .card-basic { border-color: rgba(255,255,255,0.1); }
-        .card-pro { border-color: rgba(177, 75, 244, 0.5); background: linear-gradient(180deg, rgba(177, 75, 244, 0.05) 0%, var(--bg-card) 100%); }
-        .card-premium { border-color: rgba(41, 112, 255, 0.5); background: linear-gradient(180deg, rgba(41, 112, 255, 0.05) 0%, var(--bg-card) 100%); }
-        .card-legend { border-color: var(--neon-gold); background: linear-gradient(180deg, rgba(251, 191, 36, 0.05) 0%, var(--bg-card) 100%); transform: scale(1.02); z-index: 2; box-shadow: 0 10px 40px rgba(251, 191, 36, 0.15);}
-
-        .p-badge { position: absolute; top: -12px; right: 20px; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 20px; letter-spacing: 1px; }
-        .badge-premium { background: var(--neon-blue); color: #fff; }
-        .badge-legend { background: var(--neon-gold); color: #000; }
-
-        .p-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
-        .p-price { font-size: 2.5rem; font-weight: 800; margin-bottom: 25px; }
-        .p-price span { font-size: 0.9rem; font-weight: 400; color: var(--text-muted); }
-
-        .card-basic .p-price { color: #fff; }
-        .card-pro .p-price { color: var(--neon-purple); }
-        .card-premium .p-price { color: var(--neon-blue); }
-        .card-legend .p-price { color: var(--neon-gold); }
-
-        .p-features { list-style: none; flex: 1; margin-bottom: 30px; }
-        .p-features li { font-size: 0.85rem; margin-bottom: 12px; display: flex; gap: 10px; color: #ccc; }
-        .p-features li i.fa-check { color: var(--neon-cyan); margin-top: 3px; }
-        .p-features li i.fa-times { color: var(--neon-red); margin-top: 3px; }
-
-        .p-btn { width: 100%; padding: 12px; border-radius: 10px; font-weight: 700; text-decoration: none; text-align: center; transition: 0.3s; border: 1px solid transparent; }
-        .btn-outline { background: rgba(255,255,255,0.05); color: #fff; border-color: var(--border-color); }
-        .btn-outline:hover { background: #fff; color: #000; }
-        
-        .btn-pro { background: transparent; color: var(--neon-purple); border-color: var(--neon-purple); }
-        .btn-pro:hover { background: var(--neon-purple); color: #fff; }
-        
-        .btn-premium { background: transparent; color: var(--neon-blue); border-color: var(--neon-blue); }
-        .btn-premium:hover { background: var(--neon-blue); color: #fff; }
-        
-        .btn-legend { background: var(--neon-gold); color: #000; }
-        .btn-legend:hover { background: #fff; box-shadow: 0 5px 15px rgba(251, 191, 36, 0.4); }
-
-        @media (max-width: 900px) {
-            .hero-pos h1 { font-size: 2.5rem; }
-            .btn-main { width: 100%; justify-content: center; }
-            .card-legend { transform: scale(1); }
+        .hero { padding: 80px 8%; text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero h1 span { color: var(--neon-cyan); }
+        .content-placeholder { 
+            max-width: 800px; margin: 0 auto; padding: 60px; background: var(--bg-card); 
+            border-radius: 24px; border: 1px dashed var(--neon-cyan); opacity: 0.6;
         }
     </style>
 </head>
 <body>
-
-    <div class="glow"></div>
-
-    <nav>
-        <a href="/" class="logo">KE<span>TICK</span>4Micro</a>
-        <a href="/" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">← Kembali</a>
-    </nav>
-
-    <div class="container">
-        <section class="hero-pos">
-            <div style="display: inline-block; padding: 6px 15px; background: rgba(0, 229, 255, 0.1); border: 1px solid rgba(0, 229, 255, 0.2); border-radius: 20px; color: var(--neon-cyan); font-size: 0.75rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 20px; text-transform: uppercase;">
-                Sistem POS Paling Ringan di Malaysia
-            </div>
-            <h1>Urus Jualan & Stok<br><span>Hanya Guna Smartphone</span></h1>
-            <p>Ketick4Micro direka khas untuk peniaga kecil, stall, dan usahawan mikro yang mahukan sistem POS pantas tanpa perlu beli hardware mahal.</p>
-
-            <div class="btn-group">
-                <a href="https://daqbang-dot.github.io/Ketick4Micro/" target="_blank" class="btn-main btn-demo">
-                    <i class="fas fa-download"></i> Guna Pakej Basic Percuma
-                </a>
-                <a href="#harga" class="btn-main btn-buy">
-                    <i class="fas fa-crown"></i> Lihat Pelan Penuh
-                </a>
-            </div>
-        </section>
-
-        <div class="features-grid">
-            <div class="f-card">
-                <i class="fas fa-bolt"></i>
-                <h3>Pantas & Ringan</h3>
-                <p>Tiada loading lama. Buka terus boleh rekod jualan. Sesuai untuk jualan 'fast-paced'.</p>
-            </div>
-            <div class="f-card">
-                <i class="fas fa-box-open"></i>
-                <h3>Pantau Stok Live</h3>
-                <p>Dapatkan amaran automatik apabila stok produk anda semakin berkurangan.</p>
-            </div>
-            <div class="f-card">
-                <i class="fas fa-file-invoice-dollar"></i>
-                <h3>Invois Profesional</h3>
-                <p>Jana sebut harga dan invois digital terus ke WhatsApp pelanggan anda.</p>
-            </div>
+    <div class="maintenance-bar"><i class="fas fa-tools"></i> SECTION UNDER MAINTENANCE - DETAIL COMING SOON</div>
+    <nav><a href="/" class="logo">KE<span>TICK</span> POS</a><a href="/" style="color:var(--text-muted); text-decoration:none;">← Kembali</a></nav>
+    <section class="hero">
+        <h1>Sistem <span>POS Mikro</span></h1>
+        <p style="color:var(--text-muted); margin-bottom:40px;">Solusi pengurusan stok dan jualan paling ringan untuk usahawan Malaysia.</p>
+        <div class="content-placeholder">
+            <i class="fas fa-layer-group" style="font-size: 4rem; margin-bottom: 20px; color: var(--neon-cyan);"></i>
+            <h3>Modul Sedang Dikemas Kini</h3>
+            <p>Kami sedang menyusun senarai ciri-ciri teknikal sistem POS untuk paparan anda. Jumpa esok!</p>
         </div>
-
-        <section id="harga" class="pricing-section">
-            <div class="pricing-header">
-                <h2>Tingkatkan Bisnes Anda</h2>
-                <p>Pilih pakej yang sesuai dengan keperluan perniagaan anda.</p>
-            </div>
-
-            <div class="pricing-grid">
-                <div class="p-card card-basic">
-                    <div class="p-title">Basic (Percuma)</div>
-                    <div class="p-price">RM 0</div>
-                    <ul class="p-features">
-                        <li><i class="fas fa-check"></i> Had 50 Produk</li>
-                        <li><i class="fas fa-check"></i> Local Storage Data</li>
-                        <li><i class="fas fa-check"></i> Jana Quotation / Invoice</li>
-                        <li><i class="fas fa-times"></i> <s>Tiada Logo Syarikat</s></li>
-                        <li><i class="fas fa-times"></i> <s>Watermark KETICK di PDF</s></li>
-                    </ul>
-                    <a href="https://daqbang-dot.github.io/Ketick4Micro/" target="_blank" class="p-btn btn-outline">Guna Percuma</a>
-                </div>
-
-                <div class="p-card card-pro">
-                    <div class="p-title">Pro (Bulanan)</div>
-                    <div class="p-price">RM 29<span>/bulan</span></div>
-                    <ul class="p-features">
-                        <li><i class="fas fa-check"></i> <strong>Unlimited</strong> Produk</li>
-                        <li><i class="fas fa-check"></i> <strong>Cloud Backup</strong> (Data Selamat)</li>
-                        <li><i class="fas fa-check"></i> Muat naik <strong>Logo Bisnes</strong></li>
-                        <li><i class="fas fa-check"></i> Buang Watermark KETICK</li>
-                        <li><i class="fas fa-check"></i> Laporan Jualan Asas</li>
-                    </ul>
-                    <a href="https://wa.me/601123266755?text=Saya+nak+langgan+Ketick4Micro+Pro+(RM29/bln)" target="_blank" class="p-btn btn-pro">Langgan Pro</a>
-                </div>
-
-                <div class="p-card card-premium">
-                    <div class="p-badge badge-premium">JIMAT 42%</div>
-                    <div class="p-title">Premium (Tahunan)</div>
-                    <div class="p-price">RM 199<span>/tahun</span></div>
-                    <ul class="p-features">
-                        <li><i class="fas fa-check"></i> <strong>Semua fungsi Pakej Pro</strong></li>
-                        <li><i class="fas fa-check"></i> <strong>Multi-Device Sync</strong> (PC/Tab)</li>
-                        <li><i class="fas fa-check"></i> <strong>1 Akaun Staf</strong> (Untuk pekerja)</li>
-                        <li><i class="fas fa-check"></i> Sokongan Bantuan VIP</li>
-                    </ul>
-                    <a href="https://wa.me/601123266755?text=Saya+nak+langgan+Ketick4Micro+Premium+(RM199/thn)" target="_blank" class="p-btn btn-premium">Langgan Premium</a>
-                </div>
-
-                <div class="p-card card-legend">
-                    <div class="p-badge badge-legend">PALING LARIS</div>
-                    <div class="p-title" style="color: var(--neon-gold);">Legend (Lifetime)</div>
-                    <div class="p-price">RM 499<span> bayar sekali</span></div>
-                    <ul class="p-features">
-                        <li><i class="fas fa-check"></i> <strong>Semua fungsi Premium</strong></li>
-                        <li><i class="fas fa-check"></i> <strong>Tiada yuran bulanan / tahunan</strong></li>
-                        <li><i class="fas fa-check"></i> Butang hantar PDF terus ke WhatsApp</li>
-                        <li><i class="fas fa-check"></i> Percuma modul & update akan datang</li>
-                    </ul>
-                    <a href="https://wa.me/601123266755?text=Saya+nak+rembat+Ketick4Micro+Legend+Lifetime+(RM499)" target="_blank" class="p-btn btn-legend">DAPATKAN LIFETIME</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
+    </section>
     <script>
-        // CLEAN URL LOGIC
         if (window.location.pathname.endsWith('.html')) {
-            var cleanPath = window.location.pathname.replace('.html', '');
-            window.history.replaceState({}, '', cleanPath);
+            window.history.replaceState({}, '', window.location.pathname.replace('.html', ''));
         }
     </script>
 </body>
