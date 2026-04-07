@@ -94,6 +94,14 @@
         .p-title { font-size: 1.2rem; font-weight: 800; text-align: center; margin-bottom: 5px; text-transform: uppercase; }
         .p-target { text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 25px; }
         
+        .p-price { font-size: 2.5rem; font-weight: 800; margin-bottom: 25px; text-align: center; }
+        .p-price span { font-size: 0.9rem; font-weight: 400; color: var(--text-muted); }
+
+        .card-basic .p-price { color: #fff; }
+        .card-pro .p-price { color: var(--neon-cyan); }
+        .card-premium .p-price { color: var(--neon-blue); }
+        .card-legend .p-price { color: var(--neon-gold); }
+        
         .p-features { list-style: none; flex: 1; margin-bottom: 30px; }
         .p-features li { font-size: 0.85rem; margin-bottom: 15px; display: flex; gap: 10px; color: #eee; }
         .p-features li i.fa-check { color: var(--neon-green); margin-top: 3px; }
@@ -254,6 +262,7 @@
                 <div class="p-card card-basic">
                     <div class="p-title">Basic</div>
                     <div class="p-target">Percubaan Asas</div>
+                    <div class="p-price">RM 0<span> percuma</span></div>
                     <ul class="p-features">
                         <li><i class="fas fa-check"></i> POS Asas & Tambah Produk</li>
                         <li><i class="fas fa-lock"></i> Pengurusan Kupon</li>
@@ -268,6 +277,7 @@
                 <div class="p-card card-pro">
                     <div class="p-title" style="color: var(--neon-cyan);">Pro</div>
                     <div class="p-target">Untuk Peniaga Aktif</div>
+                    <div class="p-price">RM 39<span> lifetime</span></div>
                     <ul class="p-features">
                         <li><i class="fas fa-check"></i> <strong>POS Jualan Tanpa Had</strong></li>
                         <li><i class="fas fa-check"></i> Pengurusan Kupon Diskaun</li>
@@ -276,12 +286,13 @@
                         <li><i class="fas fa-lock"></i> WhatsApp Blast</li>
                         <li><i class="fas fa-lock"></i> Modul Cukai LHDN / Excel</li>
                     </ul>
-                    <a href="https://wa.me/601123266755?text=Saya+nak+langgan+Ketick4Micro+PRO" target="_blank" class="p-btn btn-outline">Langgan Pakej Pro</a>
+                    <a href="https://wa.me/601123266755?text=Saya+nak+langgan+Ketick4Micro+PRO+(RM39)" target="_blank" class="p-btn btn-outline">Langgan Pakej Pro</a>
                 </div>
 
                 <div class="p-card card-premium">
                     <div class="p-title" style="color: var(--neon-blue);">Premium</div>
                     <div class="p-target">Pemasaran & Pengurusan</div>
+                    <div class="p-price">RM 89<span> lifetime</span></div>
                     <ul class="p-features">
                         <li><i class="fas fa-check"></i> Semua Fungsi Pakej PRO</li>
                         <li><i class="fas fa-check"></i> <strong>Modul Buku 555 (Hutang)</strong></li>
@@ -290,13 +301,23 @@
                         <li><i class="fas fa-lock"></i> Import/Eksport Pukal Excel</li>
                         <li><i class="fas fa-lock"></i> Logo Custom pada Resit</li>
                     </ul>
-                    <a href="https://wa.me/601123266755?text=Saya+nak+langgan+Ketick4Micro+PREMIUM" target="_blank" class="p-btn btn-outline">Langgan Premium</a>
+                    <a href="https://wa.me/601123266755?text=Saya+nak+langgan+Ketick4Micro+PREMIUM+(RM89)" target="_blank" class="p-btn btn-outline">Langgan Premium</a>
                 </div>
 
                 <div class="p-card card-legend">
                     <div class="p-badge badge-legend">AKSES PENUH</div>
                     <div class="p-title" style="color: var(--neon-gold);">Legend</div>
                     <div class="p-target">Ekosistem PKS Lengkap</div>
+                    
+                    <div class="p-price" style="margin-bottom: 10px;">
+                        <div style="font-size: 1.2rem; color: #ccc;">RM 129<span style="font-size: 0.8rem;"> /tahun</span></div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); margin: 5px 0;">ATAU</div>
+                        RM 199<span style="font-size: 0.9rem;"> lifetime</span>
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--neon-gold); background: rgba(251, 191, 36, 0.1); padding: 6px 10px; border-radius: 8px; margin-bottom: 20px; text-align: center; border: 1px solid rgba(251, 191, 36, 0.3);">
+                        <s style="color: var(--neon-red); margin-right: 5px;">RM 299</s> Khas 100 org pertama shj!
+                    </div>
+
                     <ul class="p-features">
                         <li><i class="fas fa-check"></i> Semua Fungsi Pakej PREMIUM</li>
                         <li><i class="fas fa-check"></i> <strong>Modul Cukai LHDN & e-Invoice</strong></li>
@@ -305,7 +326,7 @@
                         <li><i class="fas fa-check"></i> Muat Naik Logo Bisnes (Resit)</li>
                         <li><i class="fas fa-check"></i> Custom Glassmorphism UI</li>
                     </ul>
-                    <a href="https://wa.me/601123266755?text=Saya+nak+buka+semua+modul+Ketick4Micro+LEGEND!" target="_blank" class="p-btn btn-legend">Jadi Legend Sekarang</a>
+                    <a href="https://wa.me/601123266755?text=Saya+nak+rembat+Ketick4Micro+Legend+Lifetime+Promo+(RM199)!" target="_blank" class="p-btn btn-legend">Jadi Legend Sekarang</a>
                 </div>
             </div>
         </section>
