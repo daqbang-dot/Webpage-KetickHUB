@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KETICK - Sistem POS Peniaga Mikro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    colors: { primary: '#007BFF', indigo: '#4F46E5', lime: '#39FF14', orange: '#FF5722', darkBg: '#121212', darkCard: '#1A1A1A' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #121212; color: #fff; overflow-x: hidden; }
+        .gradient-text { background: linear-gradient(135deg, #39FF14, #007BFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed top-0 w-full bg-darkBg/90 backdrop-blur-md z-50 border-b border-[#2A2A2A]">
+        <div class="max-w-md mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold tracking-tight lowercase">ketick<span class="text-lime text-2xl leading-none">.</span></h1>
+            <button onclick="window.location.href='index.html'" class="text-[10px] font-bold text-gray-300 hover:text-white uppercase tracking-widest border border-[#2A2A2A] px-3 py-1.5 rounded-lg">Log Masuk</button>
+        </div>
+    </nav>
+
+    <div class="max-w-md mx-auto px-4 pt-24 pb-12">
+        <div class="text-center mb-10">
+            <h1 class="text-4xl font-extrabold leading-tight mb-4 tracking-tight">
+                Tukar Telefon Jadi <br><span class="gradient-text">Mesin POS & LHDN</span>
+            </h1>
+            <p class="text-sm text-gray-400 mb-6">Tinggalkan buku 555. Urus stok, blast WhatsApp promosi, dan jana E-Invoice secara automatik terus dari poket anda.</p>
+            
+            <button onclick="openLeadForm()" class="w-full bg-lime hover:bg-lime/90 text-black text-sm font-bold py-4 rounded-full transition transform hover:scale-105 shadow-[0_0_20px_rgba(57,255,20,0.3)] uppercase tracking-widest">
+                Tuntut Trial 7 Hari Percuma
+            </button>
+
+            <div class="flex items-center justify-center gap-2 mt-4">
+                <div class="flex -space-x-2">
+                    <img class="w-6 h-6 rounded-full border-2 border-darkBg" src="https://i.pravatar.cc/100?img=1" alt="User">
+                    <img class="w-6 h-6 rounded-full border-2 border-darkBg" src="https://i.pravatar.cc/100?img=2" alt="User">
+                    <img class="w-6 h-6 rounded-full border-2 border-darkBg" src="https://i.pravatar.cc/100?img=3" alt="User">
+                </div>
+                <p class="text-[10px] text-gray-400"><span class="font-bold text-white">4.9/5</span> dari 1,200+ peniaga mikro ✅</p>
+            </div>
+        </div>
+
+        <div class="bg-gradient-to-tr from-indigo/20 to-primary/20 p-1 rounded-2xl mb-12">
+            <div class="bg-darkCard rounded-xl p-2 border border-[#2A2A2A]">
+                <img src="https://via.placeholder.com/400x300/121212/39FF14?text=SCREENSHOT+APP+KETICK" alt="App Preview" class="w-full rounded-lg opacity-80 mix-blend-screen">
+            </div>
+        </div>
+
+        <div class="mb-12">
+            <h2 class="text-xl font-bold text-center mb-6">3 Langkah Mula Meniaga</h2>
+            <div class="space-y-4">
+                <div class="bg-darkCard p-5 rounded-2xl border border-[#2A2A2A] flex gap-4 items-start">
+                    <div class="bg-[#2A2A2A] w-8 h-8 rounded-full flex items-center justify-center font-bold text-lime font-mono">1</div>
+                    <div>
+                        <h3 class="font-bold text-sm mb-1">Daftar Percuma</h3>
+                        <p class="text-xs text-gray-400">Masukkan nombor WhatsApp dan terima Kunci Lesen Premium 7-Hari secara percuma.</p>
+                    </div>
+                </div>
+                <div class="bg-darkCard p-5 rounded-2xl border border-[#2A2A2A] flex gap-4 items-start">
+                    <div class="bg-[#2A2A2A] w-8 h-8 rounded-full flex items-center justify-center font-bold text-lime font-mono">2</div>
+                    <div>
+                        <h3 class="font-bold text-sm mb-1">Install App (PWA)</h3>
+                        <p class="text-xs text-gray-400">Buka link di Google Chrome/Safari dan tekan 'Add to Home Screen'. Tiada muat turun berat.</p>
+                    </div>
+                </div>
+                <div class="bg-darkCard p-5 rounded-2xl border border-[#2A2A2A] flex gap-4 items-start">
+                    <div class="bg-[#2A2A2A] w-8 h-8 rounded-full flex items-center justify-center font-bold text-lime font-mono">3</div>
+                    <div>
+                        <h3 class="font-bold text-sm mb-1">Mula Merekod Jualan</h3>
+                        <p class="text-xs text-gray-400">Masukkan stok produk, rekod hutang 555, dan print resit Bluetooth terus ke pelanggan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-12">
+            <h2 class="text-xl font-bold text-center mb-6">Kenapa KETICK Terbaik?</h2>
+            <div class="bg-darkCard rounded-2xl border border-[#2A2A2A] overflow-hidden">
+                <div class="grid grid-cols-3 bg-[#2A2A2A] p-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 text-center">
+                    <div class="text-left">Ciri-Ciri</div>
+                    <div>Buku 555</div>
+                    <div class="text-lime">KETICK</div>
+                </div>
+                <div class="grid grid-cols-3 p-4 text-xs border-b border-[#2A2A2A] items-center text-center">
+                    <div class="text-left text-gray-300">Rekod Jualan / POS</div>
+                    <div>❌</div>
+                    <div class="text-lime font-bold">✅ Ya</div>
+                </div>
+                <div class="grid grid-cols-3 p-4 text-xs border-b border-[#2A2A2A] items-center text-center">
+                    <div class="text-left text-gray-300">Simpan Database P/gan</div>
+                    <div>❌</div>
+                    <div class="text-lime font-bold">✅ Ya</div>
+                </div>
+                <div class="grid grid-cols-3 p-4 text-xs border-b border-[#2A2A2A] items-center text-center">
+                    <div class="text-left text-gray-300">E-Invoice LHDN (.json)</div>
+                    <div>❌</div>
+                    <div class="text-lime font-bold">✅ Ya</div>
+                </div>
+                <div class="grid grid-cols-3 p-4 text-xs items-center text-center bg-indigo/10">
+                    <div class="text-left text-gray-300">Kos Penyelenggaraan</div>
+                    <div class="text-gray-500">Percuma</div>
+                    <div class="text-lime font-bold">Terlalu Murah</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-20">
+            <h2 class="text-xl font-bold text-center mb-6">Soalan Lazim (FAQ)</h2>
+            <div class="space-y-2 text-sm">
+                <div class="bg-darkCard p-4 rounded-xl border border-[#2A2A2A]">
+                    <p class="font-bold text-indigo mb-1">Kena bayar ke untuk cuba?</p>
+                    <p class="text-xs text-gray-400">Tidak. Kami berikan akses Pakej Legend percuma selama 7 hari tanpa perlukan kad kredit.</p>
+                </div>
+                <div class="bg-darkCard p-4 rounded-xl border border-[#2A2A2A]">
+                    <p class="font-bold text-indigo mb-1">Kalau data hilang macam mana?</p>
+                    <p class="text-xs text-gray-400">Sistem KETICK menyokong sandaran (backup) pangkalan data dan berfungsi 100% secara offline.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed bottom-0 w-full bg-darkBg/95 backdrop-blur-md border-t border-[#2A2A2A] p-4 z-40 pb-6">
+        <div class="max-w-md mx-auto">
+            <button onclick="openLeadForm()" class="w-full bg-lime hover:bg-lime/90 text-black text-sm font-bold py-4 rounded-xl transition shadow-[0_0_15px_rgba(57,255,20,0.3)] uppercase tracking-widest">
+                Start Now - Free Trial
+            </button>
+        </div>
+    </div>
+
+    <div id="lead-modal" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+        <div class="bg-darkCard border border-indigo rounded-2xl p-6 max-w-sm w-full shadow-2xl relative">
+            <button onclick="closeLeadForm()" class="absolute top-4 right-4 text-gray-400 hover:text-white">✕</button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-full bg-indigo/20 text-indigo mx-auto flex items-center justify-center mb-3 text-xl">🎁</div>
+                <h3 class="text-lg font-bold text-white mb-1">Tuntut Lesen Trial</h3>
+                <p class="text-[10px] text-gray-400">Sila isi butiran di bawah. Kunci Lesen 7-Hari akan dihantar terus ke WhatsApp anda.</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="text-[10px] text-gray-400 uppercase tracking-widest mb-1 block">Nama Anda</label>
+                    <input type="text" id="lead-name" placeholder="Cth: Ali Ahmad" class="w-full bg-[#111] border border-[#2A2A2A] rounded-lg p-3 text-sm text-white outline-none focus:border-lime transition">
+                </div>
+                <div>
+                    <label class="text-[10px] text-gray-400 uppercase tracking-widest mb-1 block">No. WhatsApp</label>
+                    <input type="number" id="lead-phone" placeholder="Cth: 60123456789" class="w-full bg-[#111] border border-[#2A2A2A] rounded-lg p-3 text-sm text-white outline-none focus:border-lime font-mono transition">
+                </div>
+                
+                <button onclick="submitLead()" class="w-full bg-indigo hover:bg-indigo/90 text-white font-bold py-4 rounded-lg mt-2 text-xs uppercase tracking-widest transition flex justify-center items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg>
+                    Hantar Ke WhatsApp
+                </button>
+                <p class="text-[8px] text-center text-gray-500 mt-2">Dengan mendaftar, anda bersetuju untuk dihubungi oleh pihak pengurusan KETICK.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openLeadForm() { document.getElementById('lead-modal').classList.remove('hidden'); }
+        function closeLeadForm() { document.getElementById('lead-modal').classList.add('hidden'); }
+        
+        function submitLead() {
+            const name = document.getElementById('lead-name').value.trim();
+            const phone = document.getElementById('lead-phone').value.trim();
+            
+            if(!name || !phone) {
+                alert("Sila isi Nama dan No WhatsApp.");
+                return;
+            }
+
+            // Nombor WhatsApp Admin KETICK
+            const adminPhone = "601123266755";
+            
+            // Mesej auto yang akan masuk ke WhatsApp bos
+            const msg = `Salam Admin KETICK.%0A%0ASaya *${name}*, nak tuntut Lesen Premium 7 Hari secara PERCUMA.%0A%0ANo Tel saya: ${phone}%0A%0AMohon admin berikan Kunci Lesen (Key) untuk saya cuba sistem ni. Terima Kasih!`;
+            
+            // Buka WhatsApp
+            window.location.href = `https://api.whatsapp.com/send?phone=${adminPhone}&text=${msg}`;
+        }
+    </script>
+</body>
+</html>
